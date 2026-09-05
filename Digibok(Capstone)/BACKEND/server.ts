@@ -24,7 +24,9 @@ import {
 } from "./server/totp";
 
 const app = express();
-const PORT = 3000;
+// Hosted platforms (Railway, Render, Fly) assign the port at runtime and route traffic to
+// whatever they set here; 3000 is only the local-development fallback.
+const PORT = Number(process.env.PORT) || 3000;
 
 // Express 4 does not catch rejections thrown out of async route handlers: an awaited
 // query that fails becomes an unhandled rejection, which Node 15+ turns into a process

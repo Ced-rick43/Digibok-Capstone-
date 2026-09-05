@@ -13,6 +13,11 @@ types.setTypeParser(1082, (val) => val);
 
 export const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
+  // Managed Postgres reached over the public internet (Railway's proxy host, Neon,
+  // Supabase) requires TLS and presents a certificate chain Node will not validate on its
+  // own. A local server and Railway's internal network need no TLS at all, which is the
+  // default here; set DATABASE_SSL=true on hosts that require it.
+  ssl: process.env.DATABASE_SSL === "true" ? { rejectUnauthorized: false } : undefined,
 });
 
 // An idle pooled client dropped by Postgres (restart, timeout, network blip) emits an
