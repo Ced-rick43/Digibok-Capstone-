@@ -8,6 +8,7 @@ import multer from "multer";
 import QRCode from "qrcode";
 import { createServer as createViteServer } from "vite";
 import { dbInstance, User, ClientProfile, Account } from "./server/db";
+import { ensureSchema } from "./server/bootstrapSchema";
 import { generateReportPDF } from "./server/reportService";
 import { getTrialBalance, getIncomeStatement, getBalanceSheet } from "./server/financialStatements";
 import { scanComplianceDeadlines, sendActivationInviteEmail, sendPasswordResetEmail, sendSupportContactEmail, sendVerificationEmail, sendReportEmail } from "./server/notificationService";
@@ -2724,6 +2725,10 @@ process.on("uncaughtException", (err) => {
 
 // --- VITE MIDDLEWARE SETUP FOR DEV & PRODUCTION BUILD STATIC PATHS ---
 async function startServer() {
+  // Provision the database before binding, so the server never accepts a request it can
+  // only answer with a query against tables that do not exist yet. No-ops once applied.
+  await ensureSchema();
+
   if (process.env.NODE_ENV !== "production") {
     // Frontend source (index.html, vite.config.ts) now lives in FRONTEND/, a sibling of
     // this file's BACKEND/ — Vite's default config auto-discovery only searches cwd and
@@ -2767,4 +2772,11 @@ async function startServer() {
   });
 }
 
-startServer();
+// Startup is all-or-nothing: if the schema could not be applied or the frontend
+// middleware failed to build, there is nothing worth serving. Without this catch the
+// rejection reaches the guard above, which logs it and leaves a live process bound to
+// nothing — the shape of failure a platform can only report as a 502 on every request.
+startServer().catch((err) => {
+  console.error("[DigiBok Startup] Server failed to start —", err);
+  process.exit(1);
+});

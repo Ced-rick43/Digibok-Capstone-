@@ -1,8 +1,17 @@
 import "dotenv/config";
 import { Pool, types } from "pg";
 
+// This runs at import time, before the HTTP server binds. A bare throw here kills the
+// process during startup, which a hosting platform can only surface as a 502 on every
+// request while the real cause sits in a stack trace in the deploy log. State the cause
+// and the fix for both environments, then exit non-zero.
 if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL is not set. Copy .env.example to .env and configure it.");
+  console.error("[DigiBok Startup] DATABASE_URL is not set - the server cannot start.");
+  console.error("  Local:  copy .env.example to .env and set DATABASE_URL.");
+  console.error("  Hosted: add DATABASE_URL to the service variables. On Railway, reference the");
+  console.error("          Postgres service so the internal host is used; if you point at a public");
+  console.error("          proxy host instead, also set DATABASE_SSL=true.");
+  process.exit(1);
 }
 
 // DATE columns (OID 1082) come back from pg as JS Date objects by default, which would
