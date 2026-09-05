@@ -2744,8 +2744,26 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
+  const server = app.listen(PORT, "0.0.0.0", () => {
     console.log(`[DigiBok Launch] Server running on port ${PORT}`);
+  });
+
+  // Without this listener a failed bind surfaces as an uncaught exception, which the
+  // last-resort guard above logs and swallows — leaving a process that is alive but
+  // listening on nothing. A server that cannot bind has no degraded mode worth keeping,
+  // so report the cause in one line and exit non-zero.
+  server.on("error", (err: NodeJS.ErrnoException) => {
+    if (err.code === "EADDRINUSE") {
+      console.error(
+        `[DigiBok Launch] Port ${PORT} is already in use — another DigiBok dev server is ` +
+        `probably still running. Stop it, or start this one with a different PORT.`
+      );
+    } else if (err.code === "EACCES") {
+      console.error(`[DigiBok Launch] Not permitted to bind port ${PORT}. Choose a port above 1023.`);
+    } else {
+      console.error(`[DigiBok Launch] Could not start the server on port ${PORT} —`, err);
+    }
+    process.exit(1);
   });
 }
 
