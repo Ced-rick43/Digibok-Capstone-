@@ -259,7 +259,7 @@ export default function FinancialStatementsView({ user, token, refreshTrigger }:
             <button
               onClick={handleExportPDF}
               disabled={exporting || !selectedClientId}
-              className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-bold text-white bg-purple-600 hover:bg-purple-700 disabled:bg-white/10 disabled:text-gray-500 rounded-lg focus:outline-none transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 text-sm font-bold text-white bg-purple-600 hover:bg-purple-700 disabled:bg-white/10 disabled:text-gray-400 rounded-lg focus:outline-none transition-all"
             >
               {exporting ? (
                 <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
@@ -294,7 +294,7 @@ export default function FinancialStatementsView({ user, token, refreshTrigger }:
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm border-collapse">
                   <thead>
-                    <tr className="text-gray-500 font-tabular font-bold uppercase text-[11px] border-b border-white/10">
+                    <tr className="text-gray-400 font-tabular font-bold uppercase text-[14px] border-b border-white/10">
                       <th className="py-1.5 px-1">Account</th>
                       <th className="py-1.5 px-1">Type</th>
                       <th className="py-1.5 px-1 text-right">Debit (₱)</th>
@@ -305,7 +305,7 @@ export default function FinancialStatementsView({ user, token, refreshTrigger }:
                     {trialBalance.rows.map((row) => (
                       <tr key={row.account_id} className="hover:bg-black/30">
                         <td className="py-1.5 px-1 font-semibold text-white">{row.account_name}</td>
-                        <td className="py-1.5 px-1 text-xs text-gray-500 capitalize">{row.account_type}</td>
+                        <td className="py-1.5 px-1 text-xs text-gray-400 capitalize">{row.account_type}</td>
                         <td className="py-1.5 px-1 text-right font-medium">
                           {row.debit > 0 ? money(row.debit) : "—"}
                         </td>
@@ -346,7 +346,7 @@ export default function FinancialStatementsView({ user, token, refreshTrigger }:
               <div>
                 <h5 className="text-xs font-bold text-gray-400 uppercase font-tabular tracking-wider mb-1.5">Revenues</h5>
                 {incomeStatement.revenues.length === 0 ? (
-                  <p className="text-sm text-gray-500 font-tabular">No revenue activity in this period.</p>
+                  <p className="text-sm text-gray-400 font-tabular">No revenue activity in this period.</p>
                 ) : (
                   <div className="space-y-1">
                     {incomeStatement.revenues.map((r) => (
@@ -366,7 +366,7 @@ export default function FinancialStatementsView({ user, token, refreshTrigger }:
               <div>
                 <h5 className="text-xs font-bold text-gray-400 uppercase font-tabular tracking-wider mb-1.5">Expenses</h5>
                 {incomeStatement.expenses.length === 0 ? (
-                  <p className="text-sm text-gray-500 font-tabular">No expense activity in this period.</p>
+                  <p className="text-sm text-gray-400 font-tabular">No expense activity in this period.</p>
                 ) : (
                   <div className="space-y-1">
                     {incomeStatement.expenses.map((e) => (

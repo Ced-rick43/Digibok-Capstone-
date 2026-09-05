@@ -129,7 +129,7 @@ export default function BatchImportModal({ token, clientId, clientName, onClose,
             <h4 className="font-display font-bold text-white text-sm uppercase font-tabular tracking-wider">Batch Upload — Excel Import</h4>
             <p className="text-sm text-gray-400">{clientName} · Nothing gets posted until you review and confirm below.</p>
           </div>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-300 font-extrabold text-base">
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-300 font-extrabold text-base">
             <X className="w-4 h-4" />
           </button>
         </div>
@@ -202,7 +202,7 @@ export default function BatchImportModal({ token, clientId, clientName, onClose,
             <div className="max-h-[320px] overflow-y-auto border border-white/10 rounded-lg">
               <table className="w-full border-collapse text-xs">
                 <thead className="sticky top-0 bg-black/60 backdrop-blur-md">
-                  <tr className="text-gray-400 font-tabular font-bold uppercase text-[10px]">
+                  <tr className="text-gray-400 font-tabular font-bold uppercase text-[13px]">
                     <th className="py-2 px-2 text-left">Row</th>
                     <th className="py-2 px-2 text-left">Date</th>
                     <th className="py-2 px-2 text-left">Account</th>
@@ -214,7 +214,7 @@ export default function BatchImportModal({ token, clientId, clientName, onClose,
                 <tbody className="divide-y divide-white/10">
                   {preview.rows.map((row) => (
                     <tr key={row.rowNumber} className={row.errors.length > 0 ? "bg-red-500/10" : ""}>
-                      <td className="py-1.5 px-2 text-gray-500 font-tabular">{row.rowNumber}</td>
+                      <td className="py-1.5 px-2 text-gray-400 font-tabular">{row.rowNumber}</td>
                       <td className="py-1.5 px-2 text-gray-300 font-tabular">{row.date || "—"}</td>
                       <td className={`py-1.5 px-2 ${row.accountId ? "text-white" : "text-red-400 font-semibold"}`}>{row.accountNameRaw || "—"}</td>
                       <td className="py-1.5 px-2 text-right text-white font-tabular">{row.debit > 0 ? money(row.debit) : ""}</td>
@@ -222,7 +222,7 @@ export default function BatchImportModal({ token, clientId, clientName, onClose,
                       <td className="py-1.5 px-2 text-gray-300">
                         {row.narration || <span className="text-red-400 italic">missing</span>}
                         {row.errors.length > 0 && (
-                          <div className="text-red-400 text-[11px] mt-0.5">{row.errors.join(" ")}</div>
+                          <div className="text-red-400 text-[14px] mt-0.5">{row.errors.join(" ")}</div>
                         )}
                       </td>
                     </tr>
@@ -234,7 +234,7 @@ export default function BatchImportModal({ token, clientId, clientName, onClose,
             <button
               onClick={handleConfirmImport}
               disabled={preview.hasErrors || confirming || !!successMsg}
-              className="w-full py-2 bg-purple-600 disabled:bg-white/10 hover:bg-purple-700 disabled:text-gray-500 rounded text-sm font-bold text-white shadow-lg transition-all focus:outline-none uppercase tracking-wider flex items-center justify-center gap-2"
+              className="w-full py-2 bg-purple-600 disabled:bg-white/10 hover:bg-purple-700 disabled:text-gray-400 rounded text-sm font-bold text-white shadow-lg transition-all focus:outline-none uppercase tracking-wider flex items-center justify-center gap-2"
             >
               {confirming ? (
                 <>

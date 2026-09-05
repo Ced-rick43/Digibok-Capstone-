@@ -491,7 +491,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
             ].map((item) => (
               <span
                 key={item.label}
-                className="inline-flex items-center gap-1.5 pl-2 pr-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-gray-100 text-[11px] font-medium"
+                className="inline-flex items-center gap-1.5 pl-2 pr-3 py-1.5 rounded-full bg-white/10 border border-white/15 text-gray-100 text-[14px] font-medium"
               >
                 <item.icon className="w-3.5 h-3.5 text-purple-400 shrink-0" />
                 {item.label}
@@ -540,7 +540,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       value={totpCode}
                       onChange={(e) => setTotpCode(e.target.value)}
                       placeholder={useBackupCode ? "XXXXX-XXXXX" : "123456"}
-                      className="w-full pl-11 pr-4 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-500 font-tabular tracking-widest"
+                      className="w-full pl-11 pr-4 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-400 font-tabular tracking-widest"
                     />
                   </div>
                 </div>
@@ -626,7 +626,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="e.g. sipocot.bookkeeper@gmail.com"
-                      className="w-full pl-12 pr-4 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-500"
+                      className="w-full pl-12 pr-4 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -654,7 +654,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full pl-12 pr-12 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-500"
+                      className="w-full pl-12 pr-12 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-400"
                     />
                     <button
                       type="button"
@@ -687,7 +687,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                     (this app has no OAuth/social login to divide against). */}
                 <div className="flex items-center gap-3 pt-1">
                   <span className="h-px flex-1 bg-white/15"></span>
-                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">or</span>
+                  <span className="text-[13px] font-bold text-gray-400 uppercase tracking-wider">or</span>
                   <span className="h-px flex-1 bg-white/15"></span>
                 </div>
 
@@ -787,7 +787,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                   <h4 className="text-lg font-display font-bold text-white flex items-center gap-2">
                     I'm a Bookkeeper
                     {bookkeeperRegistrationOpen === false && (
-                      <span className="text-[10px] font-tabular font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-white/10 text-gray-400 border border-white/15">Closed</span>
+                      <span className="text-[13px] font-tabular font-bold uppercase tracking-wide px-1.5 py-0.5 rounded bg-white/10 text-gray-400 border border-white/15">Closed</span>
                     )}
                   </h4>
                   <p className="text-sm text-gray-300 mt-1.5 leading-relaxed">
@@ -882,7 +882,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                         placeholder="Maria Santos, CPA"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-500"
+                        className="w-full pl-12 pr-4 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-400"
                       />
                     </div>
                   </div>
@@ -897,7 +897,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                         placeholder="123-456-789-000"
                         value={regTin}
                         onChange={(e) => setRegTin(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-500 font-tabular"
+                        className="w-full pl-12 pr-4 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-400 font-tabular"
                       />
                     </div>
                   </div>
@@ -914,7 +914,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       placeholder="name@email.com"
                       value={regEmail}
                       onChange={(e) => setRegEmail(e.target.value)}
-                      className="w-full pl-12 pr-4 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-500"
+                      className="w-full pl-12 pr-4 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -931,7 +931,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                         placeholder="••••••••"
                         value={regPassword}
                         onChange={(e) => setRegPassword(e.target.value)}
-                        className="w-full pl-12 pr-12 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-500"
+                        className="w-full pl-12 pr-12 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-400"
                       />
                       <button
                         type="button"
@@ -954,7 +954,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                         placeholder="••••••••"
                         value={confirmPassword}
                         onChange={(e) => setConfirmPassword(e.target.value)}
-                        className="w-full pl-12 pr-12 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-500"
+                        className="w-full pl-12 pr-12 py-3.5 text-lg bg-black/40 border border-white/15 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all text-white placeholder:text-gray-400"
                       />
                       <button
                         type="button"
@@ -1017,7 +1017,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       placeholder="e.g. sipocot.bookkeeper@gmail.com"
                       value={resetEmail}
                       onChange={(e) => setResetEmail(e.target.value)}
-                      className="w-full pl-9 pr-4 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full pl-9 pr-4 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -1056,7 +1056,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       placeholder="Code from your email"
                       value={resetCode}
                       onChange={(e) => setResetCode(e.target.value)}
-                      className="w-full pl-9 pr-4 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full pl-9 pr-4 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -1072,7 +1072,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       value={resetNewPassword}
                       onChange={(e) => setResetNewPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full pl-9 pr-10 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full pl-9 pr-10 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     />
                     <button
                       type="button"
@@ -1096,7 +1096,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       value={resetConfirmPassword}
                       onChange={(e) => setResetConfirmPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full pl-9 pr-10 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full pl-9 pr-10 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     />
                     <button
                       type="button"
@@ -1177,7 +1177,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       value={activateEmail}
                       onChange={(e) => setActivateEmail(e.target.value)}
                       placeholder="e.g. juan@sipocotbakery.com"
-                      className="w-full pl-9 pr-4 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full pl-9 pr-4 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -1193,7 +1193,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       value={activatePassword}
                       onChange={(e) => setActivatePassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full pl-9 pr-10 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full pl-9 pr-10 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     />
                     <button
                       type="button"
@@ -1217,7 +1217,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       value={activateConfirmPassword}
                       onChange={(e) => setActivateConfirmPassword(e.target.value)}
                       placeholder="••••••••"
-                      className="w-full pl-9 pr-10 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full pl-9 pr-10 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     />
                     <button
                       type="button"
@@ -1315,7 +1315,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       placeholder="Provided by your bookkeeper"
                       value={crInviteCode}
                       onChange={(e) => setCrInviteCode(e.target.value)}
-                      className="w-full pl-9 pr-4 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full pl-9 pr-4 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -1333,7 +1333,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                         placeholder="e.g. Sipocot Bakery & Café"
                         value={crBusinessName}
                         onChange={(e) => setCrBusinessName(e.target.value)}
-                        className="w-full pl-9 pr-4 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                        className="w-full pl-9 pr-4 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                       />
                     </div>
                   </div>
@@ -1342,7 +1342,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                     <select
                       value={crBusinessType}
                       onChange={(e) => setCrBusinessType(e.target.value)}
-                      className="w-full px-3 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full px-3 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     >
                       <option value="Sole Proprietorship">Sole Proprietorship</option>
                       <option value="Partnership">Partnership</option>
@@ -1360,7 +1360,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       placeholder="e.g. 123-456-789-000"
                       value={crTin}
                       onChange={(e) => setCrTin(e.target.value)}
-                      className="w-full px-3 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 font-tabular text-white placeholder:text-gray-500"
+                      className="w-full px-3 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 font-tabular text-white placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -1374,7 +1374,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       placeholder="e.g. San Juan Ave, Sipocot"
                       value={crAddress}
                       onChange={(e) => setCrAddress(e.target.value)}
-                      className="w-full px-3 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full px-3 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     />
                   </div>
                   <div>
@@ -1385,7 +1385,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       placeholder="e.g. 0917-123-4567"
                       value={crContactNo}
                       onChange={(e) => setCrContactNo(e.target.value)}
-                      className="w-full px-3 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full px-3 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -1399,7 +1399,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       placeholder="e.g. Juan Dela Cruz"
                       value={crOwnerName}
                       onChange={(e) => setCrOwnerName(e.target.value)}
-                      className="w-full px-3 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full px-3 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     />
                   </div>
                   <div>
@@ -1410,7 +1410,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                       placeholder="e.g. juan@sipocotbakery.com"
                       value={crOwnerEmail}
                       onChange={(e) => setCrOwnerEmail(e.target.value)}
-                      className="w-full px-3 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                      className="w-full px-3 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                     />
                   </div>
                 </div>
@@ -1425,7 +1425,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                         placeholder="••••••••"
                         value={crPassword}
                         onChange={(e) => setCrPassword(e.target.value)}
-                        className="w-full px-3 pr-10 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                        className="w-full px-3 pr-10 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                       />
                       <button
                         type="button"
@@ -1446,7 +1446,7 @@ export default function AuthScreens({ onLoginSuccess, initialTab, onBackToHome, 
                         placeholder="••••••••"
                         value={crConfirmPassword}
                         onChange={(e) => setCrConfirmPassword(e.target.value)}
-                        className="w-full px-3 pr-10 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                        className="w-full px-3 pr-10 py-2 text-sm bg-black/40 border border-white/15 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white placeholder:text-gray-400"
                       />
                       <button
                         type="button"

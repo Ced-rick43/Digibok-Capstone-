@@ -63,7 +63,7 @@ export default function CompliancePulse({ items }: CompliancePulseProps) {
           <h3 className="font-display font-bold text-white text-sm">Compliance Pulse</h3>
           <p className="text-sm text-gray-400">Live countdown to the nearest permit &amp; tax obligations.</p>
         </div>
-        <span className="text-xs font-tabular text-gray-500 uppercase tracking-wide">{active.length} tracked</span>
+        <span className="text-xs font-tabular text-gray-400 uppercase tracking-wide">{active.length} tracked</span>
       </div>
 
       <div className="flex gap-3 overflow-x-auto pb-1">
@@ -81,17 +81,17 @@ export default function CompliancePulse({ items }: CompliancePulseProps) {
                   style={{ background: `conic-gradient(${tone.ring} ${pct}%, ${tone.ring}30 0)` }}
                 >
                   <div className="absolute inset-[3px] rounded-full bg-gray-900 flex items-center justify-center">
-                    <span className="text-[11px] font-tabular font-bold" style={{ color: tone.ring }}>
+                    <span className="text-[14px] font-tabular font-bold" style={{ color: tone.ring }}>
                       {item.days < 0 ? "!" : item.days}
                     </span>
                   </div>
                 </div>
                 <div className="min-w-0">
-                  <p className={`flex items-center gap-1 text-[11px] font-bold uppercase tracking-wide ${tone.text}`}>
+                  <p className={`flex items-center gap-1 text-[14px] font-bold uppercase tracking-wide ${tone.text}`}>
                     <tone.Icon className="w-2.5 h-2.5 shrink-0" />
                     {tone.label}
                   </p>
-                  {item.clientName && <p className="text-[11px] text-gray-500 truncate">{item.clientName}</p>}
+                  {item.clientName && <p className="text-[14px] text-gray-400 truncate">{item.clientName}</p>}
                 </div>
               </div>
               <p className="text-sm font-semibold text-white leading-snug truncate" title={item.label}>{item.label}</p>

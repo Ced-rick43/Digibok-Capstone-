@@ -196,9 +196,9 @@ export default function FloatingChatWidget({ user, token, unreadCount, onMessage
                 </div>
               )}
               {loadingThreads ? (
-                <div className="p-6 text-center text-sm text-gray-500">Loading conversations...</div>
+                <div className="p-6 text-center text-sm text-gray-400">Loading conversations...</div>
               ) : threads.length === 0 ? (
-                <div className="p-6 text-center text-sm text-gray-500">No conversations yet. Start one above.</div>
+                <div className="p-6 text-center text-sm text-gray-400">No conversations yet. Start one above.</div>
               ) : (
                 threads.map((t) => (
                   <button
@@ -209,7 +209,7 @@ export default function FloatingChatWidget({ user, token, unreadCount, onMessage
                     <div className="flex items-center justify-between gap-2">
                       <span className="text-sm font-bold truncate text-white">{t.business_name}</span>
                       {t.unreadCount > 0 && (
-                        <span className="w-4.5 h-4.5 shrink-0 flex items-center justify-center rounded-full bg-red-500 text-white text-[11px] font-bold font-tabular">
+                        <span className="w-4.5 h-4.5 shrink-0 flex items-center justify-center rounded-full bg-red-500 text-white text-[14px] font-bold font-tabular">
                           {t.unreadCount}
                         </span>
                       )}
@@ -217,7 +217,7 @@ export default function FloatingChatWidget({ user, token, unreadCount, onMessage
                     <p className="text-sm truncate mt-0.5 text-gray-400">
                       {t.latest.sender_role === "bookkeeper" ? "You: " : ""}{t.latest.body}
                     </p>
-                    <span className="text-[11px] font-tabular text-gray-500">{timeAgo(t.latest.sent_at)}</span>
+                    <span className="text-[14px] font-tabular text-gray-400">{timeAgo(t.latest.sent_at)}</span>
                   </button>
                 ))
               )}
@@ -226,10 +226,10 @@ export default function FloatingChatWidget({ user, token, unreadCount, onMessage
             <>
               <div className="flex-1 overflow-y-auto p-3 space-y-2.5 min-h-[240px]">
                 {loadingMessages ? (
-                  <div className="p-6 text-center text-sm text-gray-500">Loading messages...</div>
+                  <div className="p-6 text-center text-sm text-gray-400">Loading messages...</div>
                 ) : messages.length === 0 ? (
-                  <div className="h-full flex flex-col items-center justify-center text-center text-sm text-gray-500 gap-2 py-8">
-                    <MessageSquare className="w-7 h-7 text-gray-500" />
+                  <div className="h-full flex flex-col items-center justify-center text-center text-sm text-gray-400 gap-2 py-8">
+                    <MessageSquare className="w-7 h-7 text-gray-400" />
                     No messages yet — say hello below.
                   </div>
                 ) : (
@@ -239,7 +239,7 @@ export default function FloatingChatWidget({ user, token, unreadCount, onMessage
                       <div key={m.message_id} className={`flex ${isMine ? "justify-end" : "justify-start"}`}>
                         <div className={`max-w-[80%] rounded-lg px-2.5 py-1.5 ${isMine ? "bg-purple-600 text-white" : "bg-black/30 border border-white/10 text-white"}`}>
                           <p className="text-sm leading-relaxed whitespace-pre-wrap">{m.body}</p>
-                          <span className={`block text-[10px] font-tabular mt-1 ${isMine ? "text-gray-400" : "text-gray-500"}`}>
+                          <span className={`block text-[13px] font-tabular mt-1 ${isMine ? "text-gray-400" : "text-gray-400"}`}>
                             {new Date(m.sent_at).toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "numeric" })}
                           </span>
                         </div>
@@ -283,7 +283,7 @@ export default function FloatingChatWidget({ user, token, unreadCount, onMessage
       >
         {open ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
         {!open && unreadCount > 0 && (
-          <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 flex items-center justify-center rounded-full bg-red-500 text-white text-[11px] font-bold font-tabular border-2 border-gray-950">
+          <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 flex items-center justify-center rounded-full bg-red-500 text-white text-[14px] font-bold font-tabular border-2 border-gray-950">
             {unreadCount > 99 ? "99+" : unreadCount}
           </span>
         )}

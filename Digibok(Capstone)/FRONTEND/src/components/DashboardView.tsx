@@ -74,7 +74,7 @@ function RadialProgress({
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-sm font-tabular font-black leading-none text-white">{centerValue}</span>
-        <span className="text-[9px] font-tabular font-bold uppercase mt-0.5 text-white/60">{centerLabel}</span>
+        <span className="text-[12px] font-tabular font-bold uppercase mt-0.5 text-white/60">{centerLabel}</span>
       </div>
     </div>
   );
@@ -149,7 +149,7 @@ function BookkeeperCompliancePanel({
         </div>
 
         {overdue.length === 0 ? (
-          <div className="p-6 text-center text-sm text-gray-500">All clients compliant — nothing overdue.</div>
+          <div className="p-6 text-center text-sm text-gray-400">All clients compliant — nothing overdue.</div>
         ) : (
           <div className="space-y-2 max-h-[280px] overflow-y-auto pr-1">
             {overdue.map((item, idx) => (
@@ -188,7 +188,7 @@ function BookkeeperCompliancePanel({
       <div className="lg:col-span-2 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 p-4">
         <span className="block font-display font-bold text-white text-base mb-3">Upcoming Deadlines</span>
         {upcoming.length === 0 ? (
-          <div className="p-6 text-center text-sm text-gray-500">Nothing due in the near term.</div>
+          <div className="p-6 text-center text-sm text-gray-400">Nothing due in the near term.</div>
         ) : (
           <div className="space-y-2 max-h-[280px] overflow-y-auto pr-1">
             {upcoming.map((item, idx) => (
@@ -470,7 +470,7 @@ export default function DashboardView({ user, token, refreshTrigger, setActiveTa
       {/* Welcome Hero Panel */}
       <div className="p-5 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <span className="text-purple-400 font-tabular text-[11px] font-bold uppercase tracking-widest block mb-0.5">
+          <span className="text-purple-400 font-tabular text-[14px] font-bold uppercase tracking-widest block mb-0.5">
             MUNICIPALITY OF SIPOCOT · AREA FINANCE WORKSPACE
           </span>
           <h2 className="text-xl font-display font-bold tracking-tight text-white">
@@ -623,7 +623,7 @@ export default function DashboardView({ user, token, refreshTrigger, setActiveTa
                       {card.value}
                     </span>
                   )}
-                  <span className="block text-xs text-gray-500 mt-0.5 font-medium">{card.desc}</span>
+                  <span className="block text-xs text-gray-400 mt-0.5 font-medium">{card.desc}</span>
                 </div>
 
                 {isQ2Card && !isBookkeeper ? (
@@ -646,7 +646,7 @@ export default function DashboardView({ user, token, refreshTrigger, setActiveTa
                     <div className="h-full bg-green-500" style={{ width: `${paidVsPending.paidPct}%` }} />
                     <div className="h-full bg-orange-500" style={{ width: `${paidVsPending.pendingPct}%` }} />
                   </div>
-                  <div className="flex justify-between mt-1 text-[11px] font-tabular font-bold">
+                  <div className="flex justify-between mt-1 text-[14px] font-tabular font-bold">
                     <span className="text-green-400">Paid {paidVsPending.paidPct}%</span>
                     <span className="text-orange-400">Pending {paidVsPending.pendingPct}%</span>
                   </div>
@@ -708,17 +708,17 @@ export default function DashboardView({ user, token, refreshTrigger, setActiveTa
           {activities.length > 0 && (
             <div className="flex flex-col sm:flex-row gap-2 mb-3">
               <div className="relative flex-1">
-                <Search className="w-3.5 h-3.5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                <Search className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
                   value={activitySearch}
                   onChange={(e) => setActivitySearch(e.target.value)}
                   placeholder="Search by date (e.g. 2026-07 or 07-27), client, or filing title..."
-                  className="w-full pl-9 pr-3 py-1.5 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-500 font-tabular"
+                  className="w-full pl-9 pr-3 py-1.5 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-400 font-tabular"
                 />
               </div>
               <div className="relative shrink-0">
-                <ArrowUpDown className="w-3.5 h-3.5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <ArrowUpDown className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <select
                   value={activitySort}
                   onChange={(e) => setActivitySort(e.target.value as "status" | "latest" | "oldest")}
@@ -733,18 +733,18 @@ export default function DashboardView({ user, token, refreshTrigger, setActiveTa
           )}
 
           {activities.length === 0 ? (
-            <div className="p-8 text-center text-sm text-gray-500">
+            <div className="p-8 text-center text-sm text-gray-400">
               No recent compliance activities tracked. Click "Simulate Cron Scan" on top to populate deadlines.
             </div>
           ) : filteredActivities.length === 0 ? (
-            <div className="p-8 text-center text-sm text-gray-500">
+            <div className="p-8 text-center text-sm text-gray-400">
               No activities match "{activitySearch}". Try a different date, client, or filing title.
             </div>
           ) : (
             <div className="overflow-x-auto overflow-y-auto max-h-[420px] rounded-lg border border-white/10">
               <table className="w-full text-left text-sm border-collapse">
                 <thead className="sticky top-0 z-10">
-                  <tr className="border-b border-white/10 text-gray-400 uppercase font-tabular font-bold tracking-wider text-[11px] bg-gray-900">
+                  <tr className="border-b border-white/10 text-gray-400 uppercase font-tabular font-bold tracking-wider text-[14px] bg-gray-900">
                     <th className="py-2 px-3">Date</th>
                     {isBookkeeper && <th className="py-2 px-3">Client</th>}
                     <th className="py-2 px-3">Compliance Title</th>
@@ -773,7 +773,7 @@ export default function DashboardView({ user, token, refreshTrigger, setActiveTa
                         <td className="py-2 px-3 text-gray-300 text-sm">{act.label}</td>
                         <td className="py-2 px-3 font-tabular font-bold text-white text-right">₱{act.amount.toLocaleString("en-US", { minimumFractionDigits: 2 })}</td>
                         <td className="py-2 px-3">
-                          <span className={`inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-bold border uppercase tracking-wider ${statusPillClass}`}>
+                          <span className={`inline-flex items-center px-2 py-0.5 rounded-md text-[14px] font-bold border uppercase tracking-wider ${statusPillClass}`}>
                             {act.status}
                           </span>
                         </td>

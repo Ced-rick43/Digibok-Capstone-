@@ -247,7 +247,7 @@ export default function ReportsView({ user, token, refreshTrigger }: ReportsView
             <button
               type="submit"
               disabled={generating}
-              className="w-full py-2 bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700 rounded text-sm font-bold text-white shadow-md disabled:bg-white/10 disabled:text-gray-500 transition-all focus:outline-none flex items-center justify-center gap-1.5 uppercase tracking-wider"
+              className="w-full py-2 bg-gradient-to-r from-purple-500 to-violet-600 hover:from-purple-600 hover:to-violet-700 rounded text-sm font-bold text-white shadow-md disabled:bg-white/10 disabled:text-gray-400 transition-all focus:outline-none flex items-center justify-center gap-1.5 uppercase tracking-wider"
             >
               {generating ? (
                 <span className="w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
@@ -293,7 +293,7 @@ export default function ReportsView({ user, token, refreshTrigger }: ReportsView
         )}
 
         {reports.length === 0 ? (
-          <div className="p-12 text-center text-sm text-gray-500 font-tabular">
+          <div className="p-12 text-center text-sm text-gray-400 font-tabular">
             No compiled paperwork found in this archive. Config a template to compile reports.
           </div>
         ) : (
@@ -309,7 +309,7 @@ export default function ReportsView({ user, token, refreshTrigger }: ReportsView
                   </div>
                   <div className="space-y-0.5">
                     <h5 className="font-bold text-white text-sm">{report.report_type}</h5>
-                    <p className="text-xs text-gray-500 font-tabular leading-none">
+                    <p className="text-xs text-gray-400 font-tabular leading-none">
                       Period: <strong className="text-gray-400 font-tabular">{report.period}</strong> · Size: {report.file_size} · Generated: {new Date(report.generated_at).toLocaleDateString()}
                     </p>
                   </div>
@@ -340,7 +340,7 @@ export default function ReportsView({ user, token, refreshTrigger }: ReportsView
                   {isBookkeeper && (
                     <button
                       onClick={() => handleDeleteReport(report.report_id)}
-                      className="p-1 text-gray-500 hover:text-red-400 hover:bg-red-500/10 rounded transition-all font-bold"
+                      className="p-1 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded transition-all font-bold"
                       title="Delete document"
                     >
                       <Trash2 className="w-3.5 h-3.5" />

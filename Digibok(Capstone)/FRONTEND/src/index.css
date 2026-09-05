@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
 
   /* Ledger-ink primary scale — deep purple, the app's primary brand color (sidebar,
      primary buttons, dark chrome throughout). Kept deliberately desaturated at the dark
@@ -106,6 +106,14 @@
   --color-chrome: #211C17;
 }
 
+/* Base type scale. Tailwind v4 expresses BOTH its font sizes and its spacing scale in
+   rem, so lifting the root size from the 16px browser default scales text, padding and
+   gaps together (~12%) — the UI grows proportionally instead of text crowding inside
+   boxes that stayed the same size. Raise this number to go bigger still. */
+html {
+  font-size: 18px;
+}
+
 body {
   font-family: var(--font-sans);
   background-color: var(--color-canvas);
@@ -117,8 +125,11 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
 }
 
+/* Figures in ledgers, balances and money columns. Poppins matches the rest of the UI
+   (previously IBM Plex Mono); tabular-nums keeps every digit the same advance width so
+   the amount columns still line up vertically, which is the whole point of the class. */
 .font-tabular {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
 }

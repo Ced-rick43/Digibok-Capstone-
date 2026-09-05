@@ -418,7 +418,7 @@ export default function SecurityView({ user, token }: SecurityViewProps) {
           <div className="bg-black/40 backdrop-blur-md rounded-lg max-w-sm w-full p-5 shadow-2xl border border-white/10">
             <div className="pb-3 mb-4 border-b border-white/10 flex justify-between items-center">
               <h4 className="font-display font-bold text-white text-sm uppercase font-tabular tracking-wider">Disable Two-Factor Auth</h4>
-              <button onClick={() => setShowDisableModal(false)} className="text-gray-500 hover:text-gray-300 font-extrabold text-base">✕</button>
+              <button onClick={() => setShowDisableModal(false)} className="text-gray-400 hover:text-gray-300 font-extrabold text-base">✕</button>
             </div>
             <p className="text-sm text-gray-400 mb-3">Enter a current code to turn 2FA off.</p>
 
@@ -456,7 +456,7 @@ export default function SecurityView({ user, token }: SecurityViewProps) {
           <div className="bg-black/40 backdrop-blur-md rounded-lg max-w-sm w-full p-5 shadow-2xl border border-white/10">
             <div className="pb-3 mb-4 border-b border-white/10 flex justify-between items-center">
               <h4 className="font-display font-bold text-white text-sm uppercase font-tabular tracking-wider">Regenerate Backup Codes</h4>
-              <button onClick={() => setShowRegenerateModal(false)} className="text-gray-500 hover:text-gray-300 font-extrabold text-base">✕</button>
+              <button onClick={() => setShowRegenerateModal(false)} className="text-gray-400 hover:text-gray-300 font-extrabold text-base">✕</button>
             </div>
             <p className="text-sm text-gray-400 mb-3">
               Your old backup codes will stop working. Enter a current code from your authenticator app to confirm.

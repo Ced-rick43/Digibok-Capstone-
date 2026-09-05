@@ -69,7 +69,7 @@ export default function AuditLogsView({ user, token }: AuditLogsViewProps) {
 
         <div className="flex flex-wrap items-center gap-2">
           <div className="relative">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
               <Search className="w-3.5 h-3.5" />
             </span>
             <input
@@ -82,7 +82,7 @@ export default function AuditLogsView({ user, token }: AuditLogsViewProps) {
           </div>
 
           <div className="relative">
-            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500 pointer-events-none">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400 pointer-events-none">
               <Calendar className="w-3.5 h-3.5" />
             </span>
             <input
@@ -97,7 +97,7 @@ export default function AuditLogsView({ user, token }: AuditLogsViewProps) {
             <button
               onClick={() => { setSearchTerm(""); setDateFilter(""); }}
               title="Clear filters"
-              className="w-7 h-7 rounded-lg bg-black/30 hover:bg-white/10 flex items-center justify-center border border-white/10 text-gray-500 focus:outline-none"
+              className="w-7 h-7 rounded-lg bg-black/30 hover:bg-white/10 flex items-center justify-center border border-white/10 text-gray-400 focus:outline-none"
             >
               <X className="w-3.5 h-3.5" />
             </button>
@@ -110,7 +110,7 @@ export default function AuditLogsView({ user, token }: AuditLogsViewProps) {
           Assembling audit footprints...
         </div>
       ) : filteredLogs.length === 0 ? (
-        <div className="p-8 text-center text-sm text-gray-500">
+        <div className="p-8 text-center text-sm text-gray-400">
           {logs.length === 0 ? "No system compliance audits logs found." : "No logs match this filter."}
         </div>
       ) : (
@@ -127,18 +127,18 @@ export default function AuditLogsView({ user, token }: AuditLogsViewProps) {
                   </span>
                   <div className="space-y-0.5 pt-0.5">
                     <p className="text-white text-sm font-semibold leading-relaxed">{log.action}</p>
-                    <p className="text-xs text-gray-500 leading-none">
+                    <p className="text-xs text-gray-400 leading-none">
                       Target database: <strong className="text-gray-400">{log.table_name}</strong> · Record key: {log.record_id}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2.5 shrink-0 self-end sm:self-center text-xs text-gray-500">
-                  <span className="bg-black/40 backdrop-blur-md px-1.5 py-0.5 rounded text-gray-400 font-bold uppercase text-[11px] border border-white/10">
+                <div className="flex items-center gap-2.5 shrink-0 self-end sm:self-center text-xs text-gray-400">
+                  <span className="bg-black/40 backdrop-blur-md px-1.5 py-0.5 rounded text-gray-400 font-bold uppercase text-[14px] border border-white/10">
                     {log.user_name || "System"}
                   </span>
                   <span className="flex items-center gap-1 font-tabular text-xs">
-                    <Clock className="w-3 h-3 text-gray-500" />
+                    <Clock className="w-3 h-3 text-gray-400" />
                     {new Date(log.timestamp).toLocaleDateString()} {new Date(log.timestamp).toLocaleTimeString()}
                   </span>
                 </div>
@@ -147,7 +147,7 @@ export default function AuditLogsView({ user, token }: AuditLogsViewProps) {
           </div>
 
           <div className="flex items-center justify-between gap-3 pt-1">
-            <span className="text-xs text-gray-500 font-tabular">
+            <span className="text-xs text-gray-400 font-tabular">
               Showing {(currentPage - 1) * PAGE_SIZE + 1}–{Math.min(currentPage * PAGE_SIZE, filteredLogs.length)} of {filteredLogs.length} logs
             </span>
             <div className="flex items-center gap-1.5">

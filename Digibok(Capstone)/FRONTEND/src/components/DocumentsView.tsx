@@ -241,7 +241,7 @@ export default function DocumentsView({ user, token, refreshTrigger }: Documents
 
           <div className="flex flex-wrap items-center gap-2">
             <div className="relative">
-              <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
                 <Search className="w-3.5 h-3.5" />
               </span>
               <input
@@ -319,7 +319,7 @@ export default function DocumentsView({ user, token, refreshTrigger }: Documents
         )}
 
         {filteredDocuments.length === 0 ? (
-          <div className="p-10 text-center text-sm text-gray-500">
+          <div className="p-10 text-center text-sm text-gray-400">
             No documents match this filter. Click "Upload Document" to add your first file.
           </div>
         ) : isBookkeeper ? (
@@ -335,21 +335,21 @@ export default function DocumentsView({ user, token, refreshTrigger }: Documents
                   <div className="flex items-center gap-1 shrink-0">
                     <button
                       onClick={() => handleDownload(docItem)}
-                      className="p-1.5 text-gray-500 hover:text-gray-300 hover:bg-white/10 rounded transition-all"
+                      className="p-1.5 text-gray-400 hover:text-gray-300 hover:bg-white/10 rounded transition-all"
                       title="Download"
                     >
                       <Download className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={() => openEditModal(docItem)}
-                      className="p-1.5 text-gray-500 hover:text-gray-300 hover:bg-white/10 rounded transition-all"
+                      className="p-1.5 text-gray-400 hover:text-gray-300 hover:bg-white/10 rounded transition-all"
                       title="Edit document details"
                     >
                       <Pencil className="w-3.5 h-3.5" />
                     </button>
                     <button
                       onClick={() => handleDelete(docItem)}
-                      className="p-1.5 text-gray-500 hover:text-red-400 hover:bg-red-500/10 rounded transition-all"
+                      className="p-1.5 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded transition-all"
                       title="Delete document"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
@@ -362,12 +362,12 @@ export default function DocumentsView({ user, token, refreshTrigger }: Documents
                   <p className="text-xs text-gray-400 font-tabular truncate">
                     {new Date(docItem.uploaded_at).toLocaleDateString("en-US", { month: "short", day: "2-digit" })} · {docItem.original_name}
                   </p>
-                  <p className="text-xs text-gray-500 truncate">
+                  <p className="text-xs text-gray-400 truncate">
                     {getClientBusinessName(docItem.client_id)}
                   </p>
                 </div>
 
-                <span className="self-start text-[11px] bg-black/40 backdrop-blur-md px-1.5 py-0.5 rounded text-gray-300 font-tabular font-bold border border-white/10 uppercase">
+                <span className="self-start text-[14px] bg-black/40 backdrop-blur-md px-1.5 py-0.5 rounded text-gray-300 font-tabular font-bold border border-white/10 uppercase">
                   {docItem.document_type}
                 </span>
               </div>
@@ -384,14 +384,14 @@ export default function DocumentsView({ user, token, refreshTrigger }: Documents
                   <div className="space-y-0.5 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-sm font-extrabold text-white truncate">{docItem.label}</span>
-                      <span className="text-[11px] bg-black/40 backdrop-blur-md px-1.5 py-0.5 rounded text-gray-300 font-tabular font-bold border border-white/10 uppercase">
+                      <span className="text-[14px] bg-black/40 backdrop-blur-md px-1.5 py-0.5 rounded text-gray-300 font-tabular font-bold border border-white/10 uppercase">
                         {docItem.document_type}
                       </span>
                     </div>
                     <p className="text-xs text-gray-400 font-tabular truncate">
                       {docItem.original_name} · {docItem.file_size} · {new Date(docItem.uploaded_at).toLocaleDateString()}
                     </p>
-                    <p className="text-xs text-gray-500 flex items-center gap-1">
+                    <p className="text-xs text-gray-400 flex items-center gap-1">
                       <UserIcon className="w-3 h-3 shrink-0" />
                       Uploaded by {docItem.uploaded_by_role === "bookkeeper" ? "your bookkeeper" : "client"}
                       {docItem.notes && <span className="normal-case"> · {docItem.notes}</span>}
@@ -421,7 +421,7 @@ export default function DocumentsView({ user, token, refreshTrigger }: Documents
           <div className="bg-black/40 backdrop-blur-md rounded-lg max-w-md w-full p-5 shadow-2xl border border-white/10">
             <div className="pb-3 mb-4 border-b border-white/10 flex justify-between items-center">
               <h4 className="font-display font-bold text-white text-sm uppercase font-tabular tracking-wider">Upload Document</h4>
-              <button onClick={() => setShowUploadModal(false)} className="text-gray-500 hover:text-gray-300 font-extrabold text-base">✕</button>
+              <button onClick={() => setShowUploadModal(false)} className="text-gray-400 hover:text-gray-300 font-extrabold text-base">✕</button>
             </div>
 
             {modalError && <div className="p-2.5 mb-3 bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-semibold rounded">{modalError}</div>}
@@ -477,7 +477,7 @@ export default function DocumentsView({ user, token, refreshTrigger }: Documents
                   onChange={(e) => setUploadFile(e.target.files ? e.target.files[0] : null)}
                   className="w-full text-sm text-white file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-sm file:font-bold file:bg-purple-600 file:text-white hover:file:bg-purple-700"
                 />
-                <p className="text-[11px] text-gray-500 mt-1">PDF, image, or document file, up to 15MB.</p>
+                <p className="text-[14px] text-gray-400 mt-1">PDF, image, or document file, up to 15MB.</p>
               </div>
 
               <div>
@@ -508,7 +508,7 @@ export default function DocumentsView({ user, token, refreshTrigger }: Documents
           <div className="bg-black/40 backdrop-blur-md rounded-lg max-w-md w-full p-5 shadow-2xl border border-white/10">
             <div className="pb-3 mb-4 border-b border-white/10 flex justify-between items-center">
               <h4 className="font-display font-bold text-white text-sm uppercase font-tabular tracking-wider">Edit Document</h4>
-              <button onClick={() => setShowEditModal(false)} className="text-gray-500 hover:text-gray-300 font-extrabold text-base">✕</button>
+              <button onClick={() => setShowEditModal(false)} className="text-gray-400 hover:text-gray-300 font-extrabold text-base">✕</button>
             </div>
 
             {editError && <div className="p-2.5 mb-3 bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-semibold rounded">{editError}</div>}
@@ -543,7 +543,7 @@ export default function DocumentsView({ user, token, refreshTrigger }: Documents
                   onChange={(e) => setEditFile(e.target.files ? e.target.files[0] : null)}
                   className="w-full text-sm text-white file:mr-3 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-sm file:font-bold file:bg-purple-600 file:text-white hover:file:bg-purple-700"
                 />
-                <p className="text-[11px] text-gray-500 mt-1">Current file: {editDoc.original_name}</p>
+                <p className="text-[14px] text-gray-400 mt-1">Current file: {editDoc.original_name}</p>
               </div>
 
               <div>

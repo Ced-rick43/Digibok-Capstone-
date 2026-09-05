@@ -231,7 +231,7 @@ export default function MarketingSite({ onEnterAuth }: MarketingSiteProps) {
 
       {/* FOOTER */}
       <footer className="border-t border-white/10 px-6 py-10">
-        <p className="text-center text-[11px] text-gray-600 italic">Luke 1:37 — For with God, Nothing Will Be Impossible</p>
+        <p className="text-center text-[14px] text-gray-600 italic">Luke 1:37 — For with God, Nothing Will Be Impossible</p>
       </footer>
     </div>
   );

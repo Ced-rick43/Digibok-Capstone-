@@ -208,7 +208,7 @@ export default function App() {
           <p className="text-sm text-gray-300">
             Thanks for verifying your email, {user.name}! Your bookkeeper still needs to review "{(user.profile as ClientProfile).business_name}" before your account is fully active. You'll be notified as soon as it's approved.
           </p>
-          <div className="flex items-center justify-center gap-2 text-xs text-gray-500 pt-1">
+          <div className="flex items-center justify-center gap-2 text-xs text-gray-400 pt-1">
             <Mail className="w-3.5 h-3.5" />
             <span>Questions? Contact your bookkeeper directly.</span>
           </div>

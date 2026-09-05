@@ -449,9 +449,9 @@ export default function ComplianceView({ user, token, refreshTrigger, onRefreshD
         </div>
 
         {taxes.length === 0 ? (
-          <div className="p-6 text-center text-sm text-gray-500">No BIR Tax tasks mapped.</div>
+          <div className="p-6 text-center text-sm text-gray-400">No BIR Tax tasks mapped.</div>
         ) : filteredTaxes.length === 0 ? (
-          <div className="p-6 text-center text-sm text-gray-500">No tax obligations match the current filters.</div>
+          <div className="p-6 text-center text-sm text-gray-400">No tax obligations match the current filters.</div>
         ) : (
           <div className="space-y-2">
             {filteredTaxes.map((t) => {
@@ -481,7 +481,7 @@ export default function ComplianceView({ user, token, refreshTrigger, onRefreshD
                     </span>
 
                     <div className="flex items-center gap-2">
-                      <span className={`px-2 py-0.5 text-[11px] font-tabular font-bold uppercase rounded-md border ${
+                      <span className={`px-2 py-0.5 text-[14px] font-tabular font-bold uppercase rounded-md border ${
                         t.status === "filed"
                           ? "bg-green-500/10 text-green-400 border-green-500/30"
                           : t.status === "overdue"
@@ -493,7 +493,7 @@ export default function ComplianceView({ user, token, refreshTrigger, onRefreshD
                       {isBookkeeper && (
                         <button
                           onClick={() => handleDeleteTax(t.tax_id)}
-                          className="p-1 rounded text-gray-500 hover:text-red-400 hover:bg-red-500/10 transition-all font-bold"
+                          className="p-1 rounded text-gray-400 hover:text-red-400 hover:bg-red-500/10 transition-all font-bold"
                           title="Delete duty"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -529,9 +529,9 @@ export default function ComplianceView({ user, token, refreshTrigger, onRefreshD
         </div>
 
         {permits.length === 0 ? (
-          <div className="p-6 text-center text-sm text-gray-500">No active permit requirements listed.</div>
+          <div className="p-6 text-center text-sm text-gray-400">No active permit requirements listed.</div>
         ) : filteredPermits.length === 0 ? (
-          <div className="p-6 text-center text-sm text-gray-500">No permit requirements match the current filters.</div>
+          <div className="p-6 text-center text-sm text-gray-400">No permit requirements match the current filters.</div>
         ) : (
           <div className="space-y-2">
             {filteredPermits.map((p) => {
@@ -549,7 +549,7 @@ export default function ComplianceView({ user, token, refreshTrigger, onRefreshD
                         {getClientBusinessName(p.client_id)}
                       </span>
                     </div>
-                    <p className="text-xs text-gray-500 font-tabular">
+                    <p className="text-xs text-gray-400 font-tabular">
                       Expiry Date: <strong className="text-white">{p.expiry_date}</strong>
                     </p>
                   </div>
@@ -560,7 +560,7 @@ export default function ComplianceView({ user, token, refreshTrigger, onRefreshD
                     </span>
 
                     <div className="flex items-center gap-2">
-                      <span className={`px-2 py-0.5 text-[11px] font-tabular font-bold uppercase rounded-md border ${
+                      <span className={`px-2 py-0.5 text-[14px] font-tabular font-bold uppercase rounded-md border ${
                         p.status === "renewed"
                           ? "bg-green-500/10 text-green-400 border-green-500/30"
                           : p.status === "overdue"
@@ -572,7 +572,7 @@ export default function ComplianceView({ user, token, refreshTrigger, onRefreshD
                       {isBookkeeper && (
                         <button
                           onClick={() => handleDeletePermit(p.permit_id)}
-                          className="p-1 rounded text-gray-500 hover:text-red-400 hover:bg-red-500/10 transition-all font-bold"
+                          className="p-1 rounded text-gray-400 hover:text-red-400 hover:bg-red-500/10 transition-all font-bold"
                           title="Delete permit duty"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -594,7 +594,7 @@ export default function ComplianceView({ user, token, refreshTrigger, onRefreshD
           <div className="bg-black/40 backdrop-blur-md rounded-lg max-w-md w-full p-5 shadow-2xl border border-white/10">
             <div className="pb-3 mb-4 border-b border-white/10 flex justify-between items-center">
               <h4 className="font-display font-bold text-white text-sm uppercase font-tabular tracking-wider">Assign BIR Tax Duty</h4>
-              <button onClick={() => setShowTaxModal(false)} className="text-gray-500 hover:text-gray-300 font-extrabold text-base">✕</button>
+              <button onClick={() => setShowTaxModal(false)} className="text-gray-400 hover:text-gray-300 font-extrabold text-base">✕</button>
             </div>
 
             {modalError && <div className="p-2.5 mb-3 bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-semibold rounded">{modalError}</div>}
@@ -628,7 +628,7 @@ export default function ComplianceView({ user, token, refreshTrigger, onRefreshD
                   <option value="Annual Income Tax Return (AITR)">Annual Income Tax Return (AITR)</option>
                   <option value="BIR Quarterly Compliance report">BIR Quarterly Compliance report</option>
                 </select>
-                <p className="text-xs text-gray-500 mt-1">Each of these is a BIR form this Non-VAT business must file by its due date — pick whichever one you're recording.</p>
+                <p className="text-xs text-gray-400 mt-1">Each of these is a BIR form this Non-VAT business must file by its due date — pick whichever one you're recording.</p>
               </div>
 
               <div className="grid grid-cols-2 gap-3">
@@ -672,7 +672,7 @@ export default function ComplianceView({ user, token, refreshTrigger, onRefreshD
           <div className="bg-black/40 backdrop-blur-md rounded-lg max-w-md w-full p-5 shadow-2xl border border-white/10">
             <div className="pb-3 mb-4 border-b border-white/10 flex justify-between items-center">
               <h4 className="font-display font-bold text-white text-sm uppercase font-tabular tracking-wider">Assign Permit Duty</h4>
-              <button onClick={() => setShowPermitModal(false)} className="text-gray-500 hover:text-gray-300 font-extrabold text-base">✕</button>
+              <button onClick={() => setShowPermitModal(false)} className="text-gray-400 hover:text-gray-300 font-extrabold text-base">✕</button>
             </div>
 
             {modalError && <div className="p-2.5 mb-3 bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-semibold rounded">{modalError}</div>}

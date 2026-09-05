@@ -100,7 +100,7 @@ export default function TopBar({ title, token, onScanComplete, theme, onToggleTh
       <div className="flex items-center gap-3">
         <h1 className="font-display font-bold text-white text-base tracking-tight capitalize">{title}</h1>
         <div className="hidden sm:flex items-center gap-1.5 px-2 py-0.5 bg-white/5 rounded-md text-xs font-tabular text-gray-400 border border-white/10">
-          <Calendar className="w-3 h-3 text-gray-500" />
+          <Calendar className="w-3 h-3 text-gray-400" />
           <span>{new Date().toLocaleDateString("en-US", { weekday: "short", year: "numeric", month: "short", day: "numeric" })}</span>
         </div>
       </div>
@@ -172,7 +172,7 @@ export default function TopBar({ title, token, onScanComplete, theme, onToggleTh
           >
             <Bell className="w-4 h-4" />
             {unreadCount > 0 && (
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[11px] font-tabular text-white flex items-center justify-center font-bold animate-pulse-ring">
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[14px] font-tabular text-white flex items-center justify-center font-bold animate-pulse-ring">
                 {unreadCount}
               </span>
             )}
@@ -194,7 +194,7 @@ export default function TopBar({ title, token, onScanComplete, theme, onToggleTh
               </div>
 
               {notifications.length === 0 ? (
-                <div className="p-6 text-center text-sm text-gray-500">
+                <div className="p-6 text-center text-sm text-gray-400">
                   No active deadlines alerts registered. Running compliance is clean!
                 </div>
               ) : (
@@ -218,12 +218,12 @@ export default function TopBar({ title, token, onScanComplete, theme, onToggleTh
                           <div className="space-y-0.5 min-w-0 flex-1">
                             <p className="text-sm text-gray-200 leading-snug">{n.message}</p>
                             <div className="flex items-center justify-between gap-2">
-                              <span className="inline-flex items-center gap-1 text-[11px] text-gray-500 font-tabular">
+                              <span className="inline-flex items-center gap-1 text-[14px] text-gray-400 font-tabular">
                                 <Clock className="w-2.5 h-2.5" />
                                 {new Date(n.sent_at).toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric" })}
                               </span>
                               {isClickable && (
-                                <span className="text-[11px] text-purple-400 font-bold uppercase tracking-wider shrink-0">View →</span>
+                                <span className="text-[14px] text-purple-400 font-bold uppercase tracking-wider shrink-0">View →</span>
                               )}
                             </div>
                           </div>

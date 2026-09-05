@@ -814,7 +814,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
           {activeTab === "journal" && (
             <div className="space-y-3">
               {journals.length === 0 ? (
-                <div className="p-12 text-center text-sm text-gray-500 bg-black/40 backdrop-blur-md border border-white/10 rounded-lg">
+                <div className="p-12 text-center text-sm text-gray-400 bg-black/40 backdrop-blur-md border border-white/10 rounded-lg">
                   No posted accounting journals found. Click "New Journal Entry" above to register an initial transaction.
                 </div>
               ) : (
@@ -832,14 +832,14 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                           </div>
 
                           <div className="flex items-center gap-3">
-                            <span className="text-xs text-gray-500 font-tabular font-medium">
+                            <span className="text-xs text-gray-400 font-tabular font-medium">
                               Date Posted: <strong className="text-white">{journal.entry_date}</strong>
                             </span>
                             <div className="flex items-center gap-1 shrink-0">
                               <button
                                 onClick={() => handlePrintSingleEntry(journal)}
                                 title={`Print entry ${journal.reference}`}
-                                className="p-1.5 rounded hover:bg-white/10 text-gray-500 hover:text-white"
+                                className="p-1.5 rounded hover:bg-white/10 text-gray-400 hover:text-white"
                               >
                                 <Printer className="w-3.5 h-3.5" />
                               </button>
@@ -847,7 +847,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                                 <button
                                   onClick={() => handleOpenEditJournalModal(journal)}
                                   title="Edit entry — mistakes are corrected, never deleted, and every change is tracked in the audit log"
-                                  className="p-1.5 rounded hover:bg-white/10 text-gray-500 hover:text-white"
+                                  className="p-1.5 rounded hover:bg-white/10 text-gray-400 hover:text-white"
                                 >
                                   <Pencil className="w-3.5 h-3.5" />
                                 </button>
@@ -862,7 +862,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                         <div className="overflow-x-auto pt-2.5">
                           <table className="w-full text-left text-sm border-collapse">
                             <thead>
-                              <tr className="text-gray-500 font-tabular font-bold uppercase text-[11px] border-b border-white/10">
+                              <tr className="text-gray-400 font-tabular font-bold uppercase text-[14px] border-b border-white/10">
                                 <th className="py-1 px-1">Particulars</th>
                                 <th className="py-1 px-1 text-right font-semibold">Debit (₱)</th>
                                 <th className="py-1 px-1 text-right font-semibold">Credit (₱)</th>
@@ -873,7 +873,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                                 <tr key={idx} className="hover:bg-black/30">
                                   <td className={`py-1.5 px-1 ${line.credit > 0 ? "pl-6 text-gray-400" : "font-semibold text-white"}`}>
                                     {line.credit > 0 ? "To " : ""}{line.account_name} A/c
-                                    {line.narration && <div className="text-xs text-gray-500 italic font-normal font-sans">{line.narration}</div>}
+                                    {line.narration && <div className="text-xs text-gray-400 italic font-normal font-sans">{line.narration}</div>}
                                   </td>
                                   <td className="py-1.5 px-1 text-right text-white font-medium">
                                     {line.debit > 0 ? money(line.debit) : ""}
@@ -884,7 +884,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                                 </tr>
                               ))}
                               <tr>
-                                <td colSpan={3} className="py-1.5 px-1 text-xs text-gray-500 italic font-sans">
+                                <td colSpan={3} className="py-1.5 px-1 text-xs text-gray-400 italic font-sans">
                                   (Being {journal.description})
                                 </td>
                               </tr>
@@ -915,13 +915,13 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
               {/* Search / filter / period / quick actions */}
               <div className="flex flex-col lg:flex-row lg:items-center gap-2.5">
                 <div className="relative flex-1 min-w-0">
-                  <Search className="w-3.5 h-3.5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <Search className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
                     value={ledgerSearch}
                     onChange={(e) => setLedgerSearch(e.target.value)}
                     placeholder="Search accounts by name or classification..."
-                    className="w-full pl-9 pr-3 py-1.5 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                    className="w-full pl-9 pr-3 py-1.5 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-400"
                   />
                 </div>
                 <select
@@ -965,7 +965,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                   account's transaction history below; each account's Standing Balance
                   above always stays the true all-time balance regardless of this. */}
               <div className="flex items-center gap-2">
-                <span className="text-[11px] text-gray-500 font-tabular uppercase tracking-wide shrink-0">Show transactions:</span>
+                <span className="text-[14px] text-gray-400 font-tabular uppercase tracking-wide shrink-0">Show transactions:</span>
                 <div className="flex bg-black/30 p-0.5 rounded-lg border border-white/10">
                   {([
                     { key: "all", label: "All Time" },
@@ -989,7 +989,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
               </div>
 
               {ledgerAccounts.length === 0 ? (
-                <div className="p-8 text-center text-sm text-gray-500 bg-black/40 backdrop-blur-md border border-white/10 rounded-lg">
+                <div className="p-8 text-center text-sm text-gray-400 bg-black/40 backdrop-blur-md border border-white/10 rounded-lg">
                   No chart accounts registered.
                 </div>
               ) : (
@@ -1031,16 +1031,16 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                           </div>
                           <div className="text-left leading-tight min-w-0">
                             <h5 className="font-bold text-white text-sm truncate">
-                              {acct.account_code && <span className="text-gray-500 font-tabular mr-1">{acct.account_code}</span>}
+                              {acct.account_code && <span className="text-gray-400 font-tabular mr-1">{acct.account_code}</span>}
                               {acct.account_name}
                             </h5>
-                            <span className="text-[11px] text-gray-400 uppercase font-tabular font-bold tracking-wider">{acct.account_type} classification</span>
+                            <span className="text-[14px] text-gray-400 uppercase font-tabular font-bold tracking-wider">{acct.account_type} classification</span>
                           </div>
                         </button>
 
                         <div className="flex items-center gap-3 shrink-0">
                           <div className="text-right leading-none">
-                            <span className="block text-[11px] text-gray-400 font-tabular uppercase font-bold">Standing Balance</span>
+                            <span className="block text-[14px] text-gray-400 font-tabular uppercase font-bold">Standing Balance</span>
                             <span className={`block text-sm font-tabular font-extrabold mt-0.5 ${color.text}`}>
                               {money(acct.current_balance)}
                             </span>
@@ -1049,7 +1049,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                             <button
                               onClick={() => handleOpenManageAccounts(selectedClientId)}
                               title={`Edit ${acct.account_name}`}
-                              className="p-1.5 rounded hover:bg-white/10 text-gray-500 hover:text-white focus:outline-none"
+                              className="p-1.5 rounded hover:bg-white/10 text-gray-400 hover:text-white focus:outline-none"
                             >
                               <Pencil className="w-3.5 h-3.5" />
                             </button>
@@ -1057,7 +1057,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                           <button
                             onClick={() => handlePrintAccount(acct)}
                             title={`Print ${acct.account_name}'s ledger`}
-                            className="p-1.5 rounded hover:bg-white/10 text-gray-500 hover:text-white focus:outline-none"
+                            className="p-1.5 rounded hover:bg-white/10 text-gray-400 hover:text-white focus:outline-none"
                           >
                             <Printer className="w-3.5 h-3.5" />
                           </button>
@@ -1065,7 +1065,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                             onClick={() => toggleAccount(acct.account_id)}
                             className="focus:outline-none"
                           >
-                            {isExpanded ? <ChevronUp className="w-4 h-4 text-gray-500" /> : <ChevronDown className="w-4 h-4 text-gray-500" />}
+                            {isExpanded ? <ChevronUp className="w-4 h-4 text-gray-400" /> : <ChevronDown className="w-4 h-4 text-gray-400" />}
                           </button>
                         </div>
                       </div>
@@ -1077,7 +1077,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                             <div className="overflow-x-auto">
                               <table className="w-full text-left text-sm border-collapse">
                                 <thead>
-                                  <tr className="text-gray-400 font-tabular font-bold uppercase text-[11px] border-b border-white/10">
+                                  <tr className="text-gray-400 font-tabular font-bold uppercase text-[14px] border-b border-white/10">
                                     <th className="py-1 px-1">Effective Date</th>
                                     <th className="py-1 px-1">Reference</th>
                                     <th className="py-1 px-1">Description</th>
@@ -1095,7 +1095,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                                         <td className="py-2 px-1 whitespace-nowrap">{line.entry_date}</td>
                                         <td className="py-2 px-1 whitespace-nowrap">
                                           {sourceJournal ? (
-                                            <span className="bg-purple-600 text-white font-tabular font-bold text-[11px] px-1.5 py-0.5 rounded">
+                                            <span className="bg-purple-600 text-white font-tabular font-bold text-[14px] px-1.5 py-0.5 rounded">
                                               {sourceJournal.reference}
                                             </span>
                                           ) : "—"}
@@ -1116,7 +1116,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                                               <button
                                                 onClick={() => handleOpenEditJournalModal(sourceJournal)}
                                                 title="Edit this posted line's entry — mistakes are corrected, never deleted, and every change is tracked in the audit log"
-                                                className="p-1 rounded hover:bg-white/10 text-gray-500 hover:text-white"
+                                                className="p-1 rounded hover:bg-white/10 text-gray-400 hover:text-white"
                                               >
                                                 <Pencil className="w-3.5 h-3.5" />
                                               </button>
@@ -1130,7 +1130,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                               </table>
                             </div>
                           ) : (
-                            <div className="py-4 text-center text-sm text-gray-500 font-tabular">
+                            <div className="py-4 text-center text-sm text-gray-400 font-tabular">
                               {hasLines
                                 ? `No transactions in this period — try "All Time" to see this account's full history.`
                                 : "No general ledger transactions posted. This account balance is standing at default values."}
@@ -1150,15 +1150,15 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                 <div className="p-4 bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl">
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3">
                     <div>
-                      <span className="block text-[11px] text-gray-400 font-tabular uppercase font-bold tracking-wider">Total Assets</span>
+                      <span className="block text-[14px] text-gray-400 font-tabular uppercase font-bold tracking-wider">Total Assets</span>
                       <span className="block text-lg font-tabular font-extrabold text-green-400 mt-0.5">{money(totalAssets)}</span>
                     </div>
                     <div>
-                      <span className="block text-[11px] text-gray-400 font-tabular uppercase font-bold tracking-wider">Total Liabilities</span>
+                      <span className="block text-[14px] text-gray-400 font-tabular uppercase font-bold tracking-wider">Total Liabilities</span>
                       <span className="block text-lg font-tabular font-extrabold text-orange-400 mt-0.5">{money(totalLiabilities)}</span>
                     </div>
                     <div>
-                      <span className="block text-[11px] text-gray-400 font-tabular uppercase font-bold tracking-wider">Total Equity</span>
+                      <span className="block text-[14px] text-gray-400 font-tabular uppercase font-bold tracking-wider">Total Equity</span>
                       <span className="block text-lg font-tabular font-extrabold text-purple-400 mt-0.5">{money(totalEquity)}</span>
                     </div>
                   </div>
@@ -1192,7 +1192,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                     : "Auto-posts line balances to general ledger in real time."}
                 </p>
               </div>
-              <button onClick={() => { setShowAddModal(false); setEditingJournalId(null); }} className="text-gray-500 hover:text-gray-300 font-extrabold text-base">✕</button>
+              <button onClick={() => { setShowAddModal(false); setEditingJournalId(null); }} className="text-gray-400 hover:text-gray-300 font-extrabold text-base">✕</button>
             </div>
 
             {modalError && (
@@ -1245,14 +1245,14 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                     onChange={(e) => setEntryDescription(e.target.value)}
                     className="w-full px-2 py-1 text-sm bg-black/30 border border-white/10 rounded focus:outline-none focus:ring-1 focus:ring-purple-500 text-white"
                   />
-                  <p className="text-xs text-gray-500 mt-1 italic">
+                  <p className="text-xs text-gray-400 mt-1 italic">
                     (Being {entryDescription || "..."})
                   </p>
                 </div>
               </div>
 
               {/* Part 2: Dynamic matching ledger items line grids */}
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-400">
                 Every entry needs at least two lines, and total <strong>Dr.</strong> must equal total <strong>Cr.</strong> below. Which side increases an account depends on its type: <strong>Debit</strong> increases Assets and Expenses; <strong>Credit</strong> increases Liabilities, Equity, and Revenue (the opposite decreases it). E.g. paying rent in cash: Debit Rent Expense, Credit Cash on Hand.
               </p>
               <div className="space-y-1.5">
@@ -1345,7 +1345,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                             <button
                               type="button"
                               onClick={() => handleRemoveLineRow(idx)}
-                              className="p-1 rounded hover:bg-red-500/10 text-gray-500 hover:text-red-400 focus:outline-none"
+                              className="p-1 rounded hover:bg-red-500/10 text-gray-400 hover:text-red-400 focus:outline-none"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
                             </button>
@@ -1386,7 +1386,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
               <button
                 type="submit"
                 disabled={!isBalanced || isSubmitting}
-                className="w-full py-2 bg-purple-600 disabled:bg-white/10 hover:bg-purple-700 disabled:text-gray-500 rounded text-sm font-bold text-white shadow-lg transition-all focus:outline-none uppercase tracking-wider"
+                className="w-full py-2 bg-purple-600 disabled:bg-white/10 hover:bg-purple-700 disabled:text-gray-400 rounded text-sm font-bold text-white shadow-lg transition-all focus:outline-none uppercase tracking-wider"
               >
                 {isSubmitting
                   ? "Posting…"
@@ -1408,7 +1408,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                 <h4 className="font-display font-bold text-white text-sm uppercase font-tabular tracking-wider">Manage Chart of Accounts</h4>
                 <p className="text-sm text-gray-400">{clients.find((c) => c.client_id.toString() === entryClientId)?.business_name || "Selected client"}</p>
               </div>
-              <button onClick={() => setShowManageAccounts(false)} className="text-gray-500 hover:text-gray-300 font-extrabold text-base">✕</button>
+              <button onClick={() => setShowManageAccounts(false)} className="text-gray-400 hover:text-gray-300 font-extrabold text-base">✕</button>
             </div>
 
             {manageError && (
@@ -1417,7 +1417,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
               </div>
             )}
 
-            <p className="text-xs text-gray-500 mb-2">
+            <p className="text-xs text-gray-400 mb-2">
               The opening balance is what this account starts at (e.g. how much cash is on hand right now) — you can only set it here, before any transactions are posted to it.
             </p>
             <form onSubmit={handleAddAccount} className="space-y-1.5 mb-4">
@@ -1448,7 +1448,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
               </div>
               <div className="flex items-end gap-1.5">
                 <div className="flex-1 min-w-0">
-                  <label className="block text-[11px] font-bold text-gray-500 mb-1 uppercase font-tabular tracking-wider">Opening Balance (₱)</label>
+                  <label className="block text-[14px] font-bold text-gray-400 mb-1 uppercase font-tabular tracking-wider">Opening Balance (₱)</label>
                   <input
                     type="number"
                     step="0.01"
@@ -1482,7 +1482,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                       <span className="text-xs font-bold text-gray-300 uppercase font-tabular tracking-wider">
                         {group.label} <span className="text-gray-600">({group.accounts.length})</span>
                       </span>
-                      {isGroupOpen ? <ChevronUp className="w-3.5 h-3.5 text-gray-500" /> : <ChevronDown className="w-3.5 h-3.5 text-gray-500" />}
+                      {isGroupOpen ? <ChevronUp className="w-3.5 h-3.5 text-gray-400" /> : <ChevronDown className="w-3.5 h-3.5 text-gray-400" />}
                     </button>
 
                     {isGroupOpen && (
@@ -1510,7 +1510,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                           disabled={acct.has_activity}
                           title={acct.has_activity ? "Type is locked — this account already has posted transactions" : undefined}
                           onChange={(e) => setEditAcctType(e.target.value as Account["account_type"])}
-                          className="px-2 py-1 text-sm bg-black/30 border border-white/10 rounded focus:outline-none focus:ring-1 focus:ring-purple-500 text-white capitalize disabled:bg-black/30 disabled:text-gray-500 shrink-0"
+                          className="px-2 py-1 text-sm bg-black/30 border border-white/10 rounded focus:outline-none focus:ring-1 focus:ring-purple-500 text-white capitalize disabled:bg-black/30 disabled:text-gray-400 shrink-0"
                         >
                           {ACCOUNT_TYPES.map((t) => (
                             <option key={t} value={t}>{t}</option>
@@ -1519,7 +1519,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                       </div>
                       <div className="flex items-end gap-1.5">
                         <div className="flex-1 min-w-0">
-                          <label className="block text-[11px] font-bold text-gray-500 mb-1 uppercase font-tabular tracking-wider">Opening Balance (₱)</label>
+                          <label className="block text-[14px] font-bold text-gray-400 mb-1 uppercase font-tabular tracking-wider">Opening Balance (₱)</label>
                           <input
                             type="number"
                             step="0.01"
@@ -1529,7 +1529,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                             disabled={acct.has_activity}
                             title={acct.has_activity ? "Opening balance is locked — this account already has posted transactions" : "How much this account currently holds — saved as a real, balanced journal entry"}
                             onChange={(e) => setEditAcctBalance(e.target.value)}
-                            className="w-full px-2 py-1 text-sm bg-black/30 border border-white/10 rounded focus:outline-none focus:ring-1 focus:ring-purple-500 text-white font-tabular disabled:bg-black/30 disabled:text-gray-500"
+                            className="w-full px-2 py-1 text-sm bg-black/30 border border-white/10 rounded focus:outline-none focus:ring-1 focus:ring-purple-500 text-white font-tabular disabled:bg-black/30 disabled:text-gray-400"
                           />
                         </div>
                         <button
@@ -1543,7 +1543,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                         <button
                           onClick={() => setEditingAcctId(null)}
                           title="Cancel"
-                          className="p-1.5 rounded hover:bg-red-500/10 text-gray-500 hover:text-red-400 shrink-0"
+                          className="p-1.5 rounded hover:bg-red-500/10 text-gray-400 hover:text-red-400 shrink-0"
                         >
                           <X className="w-3.5 h-3.5" />
                         </button>
@@ -1553,10 +1553,10 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                     <div className="flex items-center justify-between gap-2">
                       <div className="min-w-0">
                         <p className="text-sm font-semibold text-white truncate">
-                          {acct.account_code && <span className="text-gray-500 font-tabular mr-1">{acct.account_code}</span>}
+                          {acct.account_code && <span className="text-gray-400 font-tabular mr-1">{acct.account_code}</span>}
                           {acct.account_name}
                         </p>
-                        <p className="text-xs text-gray-500 capitalize flex items-center gap-1">
+                        <p className="text-xs text-gray-400 capitalize flex items-center gap-1">
                           {acct.account_type} · {money(acct.balance)}
                           {acct.has_activity && (
                             <span title="Type and opening balance locked — has posted transactions">
@@ -1568,7 +1568,7 @@ export default function LedgerView({ user, token, refreshTrigger, onRefreshDashb
                       <button
                         onClick={() => handleStartEditAccount(acct)}
                         title="Edit account"
-                        className="p-1.5 rounded hover:bg-white/10 text-gray-500 hover:text-white shrink-0"
+                        className="p-1.5 rounded hover:bg-white/10 text-gray-400 hover:text-white shrink-0"
                       >
                         <Pencil className="w-3.5 h-3.5" />
                       </button>

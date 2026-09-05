@@ -65,7 +65,7 @@ export default function ClientDeadlineLookup({ clients, isBookkeeper, token, onR
       </div>
 
       <div className="relative max-w-md">
-        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
           <Search className="w-3.5 h-3.5" />
         </span>
         <input
@@ -94,7 +94,7 @@ export default function ClientDeadlineLookup({ clients, isBookkeeper, token, onR
         )}
 
         {query.trim() && !selected && matches.length === 0 && (
-          <div className="absolute z-10 mt-1 w-full bg-black/40 backdrop-blur-md border border-white/10 rounded-lg shadow-lg px-3 py-2 text-sm text-gray-500">
+          <div className="absolute z-10 mt-1 w-full bg-black/40 backdrop-blur-md border border-white/10 rounded-lg shadow-lg px-3 py-2 text-sm text-gray-400">
             No matching client found.
           </div>
         )}
@@ -116,7 +116,7 @@ export default function ClientDeadlineLookup({ clients, isBookkeeper, token, onR
                   </span>
                   <div>
                     <p className="text-sm font-bold text-white">
-                      {step.title} <span className="text-[11px] font-tabular text-gray-500">({step.agency})</span>
+                      {step.title} <span className="text-[14px] font-tabular text-gray-400">({step.agency})</span>
                     </p>
                     <p className="text-xs text-gray-400 leading-snug">{step.description}</p>
                   </div>
@@ -138,14 +138,14 @@ export default function ClientDeadlineLookup({ clients, isBookkeeper, token, onR
                 return (
                   <div key={key} className="flex items-center justify-between gap-2 p-2 bg-black/40 backdrop-blur-md border border-white/10 rounded">
                     <div className="min-w-0 flex items-center gap-2">
-                      <FileText className="w-3.5 h-3.5 text-gray-500 shrink-0" />
+                      <FileText className="w-3.5 h-3.5 text-gray-400 shrink-0" />
                       <div className="min-w-0">
                         <p className="text-sm font-bold text-white truncate">{item.form} &middot; {item.label}</p>
-                        <p className="text-[11px] text-gray-400 font-tabular">Due {item.dueDate}</p>
+                        <p className="text-[14px] text-gray-400 font-tabular">Due {item.dueDate}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-2 shrink-0">
-                      <span className={`px-1.5 py-0.5 text-[11px] font-tabular font-bold uppercase rounded border ${statusClass[item.status]}`}>
+                      <span className={`px-1.5 py-0.5 text-[14px] font-tabular font-bold uppercase rounded border ${statusClass[item.status]}`}>
                         {item.status}
                       </span>
                       {isBookkeeper && (
@@ -153,7 +153,7 @@ export default function ClientDeadlineLookup({ clients, isBookkeeper, token, onR
                           disabled={isAdded}
                           onClick={() => handleQuickAdd(item)}
                           className={`p-1 rounded transition-all ${
-                            isAdded ? "text-green-400 cursor-default" : "text-gray-500 hover:text-white hover:bg-white/10"
+                            isAdded ? "text-green-400 cursor-default" : "text-gray-400 hover:text-white hover:bg-white/10"
                           }`}
                           title={isAdded ? "Added to registry" : "Add to Tax Registry"}
                         >

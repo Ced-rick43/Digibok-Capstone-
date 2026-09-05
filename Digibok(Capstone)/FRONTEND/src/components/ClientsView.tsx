@@ -440,7 +440,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
 
             <div className="flex items-center gap-2.5">
               <div className="relative">
-                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">
+                <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
                   <Search className="w-3.5 h-3.5" />
                 </span>
                 <input
@@ -463,11 +463,11 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
           </div>
 
           {loading ? (
-            <div className="p-12 text-center text-sm font-bold text-gray-500 font-tabular">
+            <div className="p-12 text-center text-sm font-bold text-gray-400 font-tabular">
               Loading active bookkeeping directories...
             </div>
           ) : filteredClients.length === 0 ? (
-            <div className="p-12 text-center text-sm text-gray-500">
+            <div className="p-12 text-center text-sm text-gray-400">
               No registered client accounts match search criteria.
             </div>
           ) : (
@@ -483,7 +483,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                         {client.business_name[0]}
                       </div>
                       {client.approval_status === "pending" && (
-                        <span className="px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/30 text-[10px] font-bold uppercase tracking-wider">
+                        <span className="px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/30 text-[13px] font-bold uppercase tracking-wider">
                           Pending Approval
                         </span>
                       )}
@@ -496,11 +496,11 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
 
                     <div className="space-y-1 pt-1.5 text-xs text-gray-400 border-t border-white/10">
                       <div className="flex items-center gap-1.5">
-                        <Layers className="w-3.5 h-3.5 text-gray-500 shrink-0" />
+                        <Layers className="w-3.5 h-3.5 text-gray-400 shrink-0" />
                         <span className="truncate">{client.business_type}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <MapPin className="w-3.5 h-3.5 text-gray-500 shrink-0" />
+                        <MapPin className="w-3.5 h-3.5 text-gray-400 shrink-0" />
                         <span className="truncate">{client.address}</span>
                       </div>
                     </div>
@@ -528,7 +528,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                         )}
                         <button
                           onClick={() => handleSoftDeleteClient(client.client_id)}
-                          className="text-gray-500 hover:text-red-400 p-1 rounded hover:bg-red-500/10"
+                          className="text-gray-400 hover:text-red-400 p-1 rounded hover:bg-red-500/10"
                           title="Archive client"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
@@ -567,25 +567,25 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
               <div>
                 <div className="flex items-center gap-2 flex-wrap">
                   <h3 className="font-display font-bold text-white text-base">{selectedClient.business_name}</h3>
-                  <span className={`inline-flex px-1.5 py-0.5 rounded text-[11px] font-tabular font-bold uppercase border ${overallStatusClass}`}>
+                  <span className={`inline-flex px-1.5 py-0.5 rounded text-[14px] font-tabular font-bold uppercase border ${overallStatusClass}`}>
                     {overallStatus}
                   </span>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-0.5 mt-1 text-sm text-gray-400">
                   <div className="flex items-center gap-1.5">
-                    <Layers className="w-3.5 h-3.5 text-gray-500" />
+                    <Layers className="w-3.5 h-3.5 text-gray-400" />
                     <span>{selectedClient.business_type}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <Tag className="w-3.5 h-3.5 text-gray-500" />
+                    <Tag className="w-3.5 h-3.5 text-gray-400" />
                     <span className="font-tabular">TIN: {selectedClient.tin}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-gray-500" />
+                    <MapPin className="w-3.5 h-3.5 text-gray-400" />
                     <span className="truncate">{selectedClient.address}</span>
                   </div>
                   <div className="flex items-center gap-1.5">
-                    <Phone className="w-3.5 h-3.5 text-gray-500" />
+                    <Phone className="w-3.5 h-3.5 text-gray-400" />
                     <span>{selectedClient.contact_number}</span>
                   </div>
                 </div>
@@ -687,7 +687,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                       {isBookkeeper && !editingFee && (
                         <button
                           onClick={handleStartEditFee}
-                          className="p-1.5 rounded hover:bg-white/10 text-gray-500 hover:text-white shrink-0"
+                          className="p-1.5 rounded hover:bg-white/10 text-gray-400 hover:text-white shrink-0"
                           title="Edit fee arrangement"
                         >
                           <Pencil className="w-3.5 h-3.5" />
@@ -734,11 +734,11 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                       </div>
                     ) : (
                       <p className="text-sm text-white flex items-center gap-1.5">
-                        {!isBookkeeper && <Lock className="w-2.5 h-2.5 text-gray-500 shrink-0" />}
+                        {!isBookkeeper && <Lock className="w-2.5 h-2.5 text-gray-400 shrink-0" />}
                         {selectedClient.bookkeeper_fee_type === "flat"
                           ? `Fixed ${money(selectedClient.bookkeeper_fee_amount)} per month`
                           : `${selectedClient.bookkeeper_fee_amount}% of monthly revenue`}
-                        {!isBookkeeper && <span className="text-gray-500">— set by your bookkeeper</span>}
+                        {!isBookkeeper && <span className="text-gray-400">— set by your bookkeeper</span>}
                       </p>
                     )}
                   </div>
@@ -756,7 +756,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                 </div>
 
                 {clientTaxes.length === 0 ? (
-                  <div className="p-8 text-center text-sm text-gray-500">No BIR tax deadlines tracked yet.</div>
+                  <div className="p-8 text-center text-sm text-gray-400">No BIR tax deadlines tracked yet.</div>
                 ) : (
                   <div className="divide-y divide-white/10 border border-white/10 rounded-lg overflow-hidden">
                     {clientTaxes.map((tax) => {
@@ -790,7 +790,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                                   Mark as Filed
                                 </button>
                               )}
-                              <span className={`px-2 py-0.5 text-[11px] font-tabular font-bold uppercase rounded-full border ${
+                              <span className={`px-2 py-0.5 text-[14px] font-tabular font-bold uppercase rounded-full border ${
                                 tax.status === "filed"
                                   ? "bg-green-500/10 text-green-400 border-green-500/30"
                                   : tax.status === "overdue"
@@ -817,7 +817,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                 </div>
 
                 {clientPermits.length === 0 ? (
-                  <div className="p-8 text-center text-sm text-gray-500">No Business permits assigned.</div>
+                  <div className="p-8 text-center text-sm text-gray-400">No Business permits assigned.</div>
                 ) : (
                   <div className="divide-y divide-white/10 border border-white/10 rounded-lg overflow-hidden">
                     {clientPermits.map((permit) => {
@@ -826,7 +826,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                         <div key={permit.permit_id} className={`p-3.5 hover:bg-black/30 flex flex-col sm:flex-row sm:items-center justify-between gap-3 ${isRenewed ? "bg-black/20" : ""}`}>
                           <div className="space-y-0.5">
                             <h5 className="font-bold text-sm text-white">{permit.permit_type}</h5>
-                            <p className="text-xs text-gray-500 font-tabular">
+                            <p className="text-xs text-gray-400 font-tabular">
                               Expiry: <strong className="text-white">{permit.expiry_date}</strong>
                             </p>
                           </div>
@@ -844,7 +844,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                                   Mark as Renewed
                                 </button>
                               )}
-                              <span className={`px-2 py-0.5 text-[11px] font-tabular font-bold uppercase rounded-md border ${
+                              <span className={`px-2 py-0.5 text-[14px] font-tabular font-bold uppercase rounded-md border ${
                                 permit.status === "renewed"
                                   ? "bg-green-500/10 text-green-400 border-green-500/30"
                                   : permit.status === "overdue"
@@ -871,7 +871,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                 </div>
 
                 {clientJournals.length === 0 ? (
-                  <div className="p-8 text-center text-sm text-gray-500">No journal lines registered yet. Feel free to add entries under Journal tab.</div>
+                  <div className="p-8 text-center text-sm text-gray-400">No journal lines registered yet. Feel free to add entries under Journal tab.</div>
                 ) : (
                   <div className="space-y-3">
                     {clientJournals.map((journal) => (
@@ -883,7 +883,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                             </span>
                             <h5 className="font-bold text-white text-sm">{journal.description}</h5>
                           </div>
-                          <span className="text-xs text-gray-500 font-tabular font-semibold">
+                          <span className="text-xs text-gray-400 font-tabular font-semibold">
                             Date Posted: {journal.entry_date}
                           </span>
                         </div>
@@ -891,7 +891,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                         <div className="overflow-x-auto">
                           <table className="w-full text-left text-sm border-collapse">
                             <thead>
-                              <tr className="text-gray-400 font-tabular text-[11px] uppercase border-b border-white/10">
+                              <tr className="text-gray-400 font-tabular text-[14px] uppercase border-b border-white/10">
                                 <th className="py-1 px-1">Account</th>
                                 <th className="py-1 px-1">Type</th>
                                 <th className="py-1 px-1 text-right">Debit (₱)</th>
@@ -904,7 +904,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                                   <td className={`py-1.5 px-1 ${line.credit > 0 ? "pl-6 text-gray-400" : "font-semibold text-white"}`}>
                                     {line.account_name}
                                   </td>
-                                  <td className="py-1.5 px-1 text-xs text-gray-500 capitalize">{line.account_type}</td>
+                                  <td className="py-1.5 px-1 text-xs text-gray-400 capitalize">{line.account_type}</td>
                                   <td className="py-1.5 px-1 text-right font-medium text-white">{line.debit > 0 ? money(line.debit) : "—"}</td>
                                   <td className="py-1.5 px-1 text-right font-medium text-white">{line.credit > 0 ? money(line.credit) : "—"}</td>
                                 </tr>
@@ -939,7 +939,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
               </div>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="text-gray-500 hover:text-white font-extrabold text-lg"
+                className="text-gray-400 hover:text-white font-extrabold text-lg"
               >
                 ✕
               </button>
@@ -1005,14 +1005,14 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                       <div>
                         <label className="block text-xs font-semibold text-gray-400 mb-1 uppercase font-tabular tracking-wider">Business Name</label>
                         <div className="relative">
-                          <Building2 className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                          <Building2 className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
                           <input
                             type="text"
                             required
                             placeholder="e.g. Sipocot Bakery & Café"
                             value={newBusinessName}
                             onChange={(e) => setNewBusinessName(e.target.value)}
-                            className="w-full pl-9 pr-3 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                            className="w-full pl-9 pr-3 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-400"
                           />
                         </div>
                       </div>
@@ -1038,7 +1038,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                         placeholder="e.g. 123-456-789-000"
                         value={newTin}
                         onChange={(e) => setNewTin(e.target.value)}
-                        className="w-full px-3 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white font-tabular placeholder:text-gray-500"
+                        className="w-full px-3 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white font-tabular placeholder:text-gray-400"
                       />
                     </div>
 
@@ -1046,28 +1046,28 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                       <div>
                         <label className="block text-xs font-semibold text-gray-400 mb-1 uppercase font-tabular tracking-wider">Business Address</label>
                         <div className="relative">
-                          <MapPin className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                          <MapPin className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
                           <input
                             type="text"
                             required
                             placeholder="e.g. San Juan Ave, Sipocot"
                             value={newAddress}
                             onChange={(e) => setNewAddress(e.target.value)}
-                            className="w-full pl-9 pr-3 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                            className="w-full pl-9 pr-3 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-400"
                           />
                         </div>
                       </div>
                       <div>
                         <label className="block text-xs font-semibold text-gray-400 mb-1 uppercase font-tabular tracking-wider">Contact Number</label>
                         <div className="relative">
-                          <Phone className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                          <Phone className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
                           <input
                             type="text"
                             required
                             placeholder="e.g. 0917-123-4567"
                             value={newContactNumber}
                             onChange={(e) => setNewContactNumber(e.target.value)}
-                            className="w-full pl-9 pr-3 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                            className="w-full pl-9 pr-3 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-400"
                           />
                         </div>
                       </div>
@@ -1082,20 +1082,20 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                           placeholder="e.g. Juan Dela Cruz"
                           value={newOwnerName}
                           onChange={(e) => setNewOwnerName(e.target.value)}
-                          className="w-full px-3 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                          className="w-full px-3 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-400"
                         />
                       </div>
                       <div>
                         <label className="block text-xs font-semibold text-gray-400 mb-1 uppercase font-tabular tracking-wider">Login Email</label>
                         <div className="relative">
-                          <Mail className="w-4 h-4 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
+                          <Mail className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
                           <input
                             type="email"
                             required
                             placeholder="e.g. juan@sipocotbakery.com"
                             value={newOwnerEmail}
                             onChange={(e) => setNewOwnerEmail(e.target.value)}
-                            className="w-full pl-9 pr-3 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                            className="w-full pl-9 pr-3 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-400"
                           />
                         </div>
                       </div>
@@ -1120,18 +1120,18 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                             value={newPassword}
                             onChange={(e) => setNewPassword(e.target.value)}
                             minLength={6}
-                            className="w-full px-3 pr-10 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-500"
+                            className="w-full px-3 pr-10 py-2 text-sm bg-black/30 border border-white/10 rounded-lg focus:outline-none focus:ring-1 focus:ring-purple-500 text-white placeholder:text-gray-400"
                           />
                           <button
                             type="button"
                             onClick={() => setShowNewPassword((v) => !v)}
-                            className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500 hover:text-white"
+                            className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-white"
                           >
                             {showNewPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                           </button>
                         </div>
                       ) : (
-                        <p className="text-xs text-gray-500 flex items-center gap-1.5">
+                        <p className="text-xs text-gray-400 flex items-center gap-1.5">
                           <Send className="w-3 h-3 shrink-0" />
                           Leave unchecked to email the client an activation link so they set their own password instead.
                         </p>
@@ -1184,7 +1184,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                       <option key={label} value={label} />
                     ))}
                   </datalist>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-gray-400 mt-1">
                     Just a note for your own tracking — the client still fills in their real business details themselves.
                   </p>
                 </div>
@@ -1260,7 +1260,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                 )}
 
                 {invitesLoading ? (
-                  <div className="p-6 text-center text-sm font-bold text-gray-500 font-tabular">Loading invite codes...</div>
+                  <div className="p-6 text-center text-sm font-bold text-gray-400 font-tabular">Loading invite codes...</div>
                 ) : olderInvites.length > 0 ? (
                   <div>
                     <span className="block text-xs font-bold text-gray-400 uppercase font-tabular tracking-wider mb-2">
@@ -1281,7 +1281,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                                 </span>
                               )}
                             </div>
-                            <p className="text-xs text-gray-500 mt-0.5">
+                            <p className="text-xs text-gray-400 mt-0.5">
                               {new Date(invite.created_at).toLocaleDateString()}
                               {invite.status === "used" && invite.used_at && ` · used ${new Date(invite.used_at).toLocaleDateString()}`}
                               {invite.status === "pending" && ` · ${invite.is_expired ? "expired" : "expires"} ${new Date(invite.expires_at).toLocaleDateString()}`}
@@ -1289,7 +1289,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                           </div>
                           <div className="flex items-center gap-1.5 shrink-0">
                             <span
-                              className={`px-2 py-0.5 text-[11px] font-tabular font-bold uppercase rounded-full border ${
+                              className={`px-2 py-0.5 text-[14px] font-tabular font-bold uppercase rounded-full border ${
                                 invite.status === "pending"
                                   ? invite.is_expired
                                     ? "bg-red-500/10 text-red-400 border-red-500/30"
@@ -1306,14 +1306,14 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                                 <button
                                   onClick={() => handleCopyCode(invite.code)}
                                   title="Copy code"
-                                  className="p-1.5 rounded hover:bg-white text-gray-500 hover:text-gray-900"
+                                  className="p-1.5 rounded hover:bg-white text-gray-400 hover:text-gray-900"
                                 >
                                   {copiedCode === invite.code ? <Check className="w-3.5 h-3.5 text-purple-400" /> : <Copy className="w-3.5 h-3.5" />}
                                 </button>
                                 <button
                                   onClick={() => handleRevokeInvite(invite.invite_id)}
                                   title="Revoke code"
-                                  className="p-1.5 rounded hover:bg-red-500/10 text-gray-500 hover:text-red-400"
+                                  className="p-1.5 rounded hover:bg-red-500/10 text-gray-400 hover:text-red-400"
                                 >
                                   <XCircle className="w-3.5 h-3.5" />
                                 </button>
@@ -1325,7 +1325,7 @@ export default function ClientsView({ user, token, onRefreshDashboard }: Clients
                     </div>
                   </div>
                 ) : !freshInvite ? (
-                  <div className="p-8 text-center text-sm text-gray-500">No invite codes generated yet — click above to create one.</div>
+                  <div className="p-8 text-center text-sm text-gray-400">No invite codes generated yet — click above to create one.</div>
                 ) : null}
               </div>
             )}

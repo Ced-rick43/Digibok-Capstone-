@@ -1,9 +1,0 @@
-connectorId: example
-generate:
-  javascriptSdk:
-    - outputDir: ..\..\Digibok(Capstone)\src\dataconnect-generated
-      package: "@dataconnect/generated"
-      packageJsonDir: ..\..\Digibok(Capstone)
-      react: true
-      angular: false
-      clientCache: {}

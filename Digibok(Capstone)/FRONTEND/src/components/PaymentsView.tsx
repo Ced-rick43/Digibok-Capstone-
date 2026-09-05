@@ -490,7 +490,7 @@ export default function PaymentsView({ user, token, refreshTrigger, onRefreshDas
             </div>
 
             {filteredPayments.length === 0 ? (
-              <div className="p-8 text-center text-sm text-gray-500">No payment records match this filter.</div>
+              <div className="p-8 text-center text-sm text-gray-400">No payment records match this filter.</div>
             ) : (
               <div className="space-y-2">
                 {filteredPayments.map((p) => (
@@ -508,7 +508,7 @@ export default function PaymentsView({ user, token, refreshTrigger, onRefreshDas
                         </div>
                         <p className="text-xs text-gray-400 font-tabular">
                           Paid: <strong className="text-white">{p.payment_date}</strong> via <strong className="text-white">{PAYMENT_METHOD_LABELS[p.payment_method]}</strong> · Ref# {p.reference_number}
-                          {p.notes && <span className="block text-gray-500 normal-case">{p.notes}</span>}
+                          {p.notes && <span className="block text-gray-400 normal-case">{p.notes}</span>}
                         </p>
                         {p.receipt_file_name && (
                           <button
@@ -526,7 +526,7 @@ export default function PaymentsView({ user, token, refreshTrigger, onRefreshDas
                       <span className="font-tabular font-bold text-sm text-white">
                         {money(p.amount)}
                       </span>
-                      <span className={`px-2 py-0.5 text-[11px] font-tabular font-bold uppercase rounded-full border ${statusChipClass(p.status)}`}>
+                      <span className={`px-2 py-0.5 text-[14px] font-tabular font-bold uppercase rounded-full border ${statusChipClass(p.status)}`}>
                         {p.status}
                       </span>
                       {p.status === "pending" && (
@@ -609,7 +609,7 @@ export default function PaymentsView({ user, token, refreshTrigger, onRefreshDas
             </div>
 
             {outstanding.length === 0 ? (
-              <div className="p-8 text-center text-sm text-gray-500">You're all caught up — no outstanding obligations right now.</div>
+              <div className="p-8 text-center text-sm text-gray-400">You're all caught up — no outstanding obligations right now.</div>
             ) : (
               <div className="divide-y divide-white/10 border border-white/10 rounded-lg overflow-hidden">
                 {outstanding.map((ob) => {
@@ -665,7 +665,7 @@ export default function PaymentsView({ user, token, refreshTrigger, onRefreshDas
             </div>
 
             {payments.length === 0 ? (
-              <div className="p-8 text-center text-sm text-gray-500">No payments submitted yet.</div>
+              <div className="p-8 text-center text-sm text-gray-400">No payments submitted yet.</div>
             ) : (
               <div className="space-y-2">
                 {payments.map((p) => (
@@ -675,7 +675,7 @@ export default function PaymentsView({ user, token, refreshTrigger, onRefreshDas
                       <p className="text-xs text-gray-400 font-tabular">
                         Paid: <strong className="text-white">{p.payment_date}</strong> via <strong className="text-white">{PAYMENT_METHOD_LABELS[p.payment_method]}</strong> · Ref# {p.reference_number}
                       </p>
-                      {p.notes && <p className="text-xs text-gray-500">{p.notes}</p>}
+                      {p.notes && <p className="text-xs text-gray-400">{p.notes}</p>}
                       {p.receipt_file_name && (
                         <button
                           onClick={() => openReceiptPreview(p)}
@@ -690,7 +690,7 @@ export default function PaymentsView({ user, token, refreshTrigger, onRefreshDas
                       <span className="font-tabular font-bold text-sm text-white">
                         {money(p.amount)}
                       </span>
-                      <span className={`px-2 py-0.5 text-[11px] font-tabular font-bold uppercase rounded-full border ${statusChipClass(p.status)}`}>
+                      <span className={`px-2 py-0.5 text-[14px] font-tabular font-bold uppercase rounded-full border ${statusChipClass(p.status)}`}>
                         {p.status}
                       </span>
                     </div>
@@ -711,7 +711,7 @@ export default function PaymentsView({ user, token, refreshTrigger, onRefreshDas
                 <h4 className="font-display font-bold text-white text-sm uppercase font-tabular tracking-wider">Record Payment</h4>
                 <p className="text-sm text-gray-400 mt-0.5">{payObligation.label}</p>
               </div>
-              <button onClick={() => setShowPayModal(false)} className="text-gray-500 hover:text-gray-300 font-extrabold text-base">✕</button>
+              <button onClick={() => setShowPayModal(false)} className="text-gray-400 hover:text-gray-300 font-extrabold text-base">✕</button>
             </div>
 
             {modalError && <div className="p-2.5 mb-3 bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-semibold rounded">{modalError}</div>}
@@ -792,7 +792,7 @@ export default function PaymentsView({ user, token, refreshTrigger, onRefreshDas
                     className="hidden"
                   />
                 </label>
-                <p className="text-xs text-gray-500 mt-1">Helps your bookkeeper confirm faster — not required, but recommended.</p>
+                <p className="text-xs text-gray-400 mt-1">Helps your bookkeeper confirm faster — not required, but recommended.</p>
               </div>
 
               <button
@@ -816,7 +816,7 @@ export default function PaymentsView({ user, token, refreshTrigger, onRefreshDas
                 <h4 className="font-display font-bold text-white text-sm uppercase font-tabular tracking-wider">Record Payment for Client</h4>
                 <p className="text-sm text-gray-400 mt-0.5">Posts straight to the client's ledger — no review step, since you're entering it yourself.</p>
               </div>
-              <button onClick={() => setShowBkPayModal(false)} className="text-gray-500 hover:text-gray-300 font-extrabold text-base">✕</button>
+              <button onClick={() => setShowBkPayModal(false)} className="text-gray-400 hover:text-gray-300 font-extrabold text-base">✕</button>
             </div>
 
             {bkError && <div className="p-2.5 mb-3 bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-semibold rounded">{bkError}</div>}
@@ -992,7 +992,7 @@ export default function PaymentsView({ user, token, refreshTrigger, onRefreshDas
                   {isBookkeeper && ` · ${getClientBusinessName(previewPayment.client_id)}`}
                 </p>
               </div>
-              <button onClick={closeReceiptPreview} className="text-gray-500 hover:text-gray-300 font-extrabold text-base">✕</button>
+              <button onClick={closeReceiptPreview} className="text-gray-400 hover:text-gray-300 font-extrabold text-base">✕</button>
             </div>
 
             <div className="min-h-[200px] flex items-center justify-center bg-black/30 rounded-lg border border-white/10 overflow-hidden">

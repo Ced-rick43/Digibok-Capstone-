@@ -138,10 +138,10 @@ export default function Sidebar({ user, activeTab, setActiveTab, onLogout, unrea
             : "text-gray-400 hover:text-white hover:bg-white/5"
         }`}
       >
-        <Icon className={`w-4 h-4 shrink-0 transition-colors ${isActive ? accentText : "text-gray-500"}`} />
+        <Icon className={`w-4 h-4 shrink-0 transition-colors ${isActive ? accentText : "text-gray-400"}`} />
         <span className="truncate flex-1">{item.label}</span>
         {!!item.badge && (
-          <span className="shrink-0 w-4 h-4 flex items-center justify-center rounded-full bg-red-500 text-white text-[11px] font-bold font-tabular">
+          <span className="shrink-0 w-4 h-4 flex items-center justify-center rounded-full bg-red-500 text-white text-[14px] font-bold font-tabular">
             {item.badge}
           </span>
         )}
@@ -164,7 +164,7 @@ export default function Sidebar({ user, activeTab, setActiveTab, onLogout, unrea
                 <span className="text-white">Digi</span>
                 <span className="text-purple-400">Bok</span>
               </div>
-              <span className="block text-[10px] text-gray-400 font-tabular tracking-wider uppercase">Sipocot, CamSur</span>
+              <span className="block text-[13px] text-gray-400 font-tabular tracking-wider uppercase">Sipocot, CamSur</span>
             </div>
           </div>
         </div>
@@ -197,17 +197,17 @@ export default function Sidebar({ user, activeTab, setActiveTab, onLogout, unrea
                       : "text-gray-400 hover:text-white hover:bg-white/5"
                   }`}
                 >
-                  <Icon className={`w-4 h-4 shrink-0 transition-colors ${isActive ? accentText : "text-gray-500"}`} />
+                  <Icon className={`w-4 h-4 shrink-0 transition-colors ${isActive ? accentText : "text-gray-400"}`} />
                   <span className="truncate flex-1">{item.label}</span>
                   {!isExpanded && !!aggregatedBadge && (
-                    <span className="shrink-0 w-4 h-4 flex items-center justify-center rounded-full bg-red-500 text-white text-[11px] font-bold font-tabular">
+                    <span className="shrink-0 w-4 h-4 flex items-center justify-center rounded-full bg-red-500 text-white text-[14px] font-bold font-tabular">
                       {aggregatedBadge}
                     </span>
                   )}
                   {!!item.children && (
                     isExpanded
-                      ? <ChevronDown className="w-3.5 h-3.5 shrink-0 text-gray-500" />
-                      : <ChevronRight className="w-3.5 h-3.5 shrink-0 text-gray-500" />
+                      ? <ChevronDown className="w-3.5 h-3.5 shrink-0 text-gray-400" />
+                      : <ChevronRight className="w-3.5 h-3.5 shrink-0 text-gray-400" />
                   )}
                 </button>
 
@@ -235,7 +235,7 @@ export default function Sidebar({ user, activeTab, setActiveTab, onLogout, unrea
           </div>
           <div className="leading-normal truncate overflow-hidden min-w-0">
             <span className="block text-sm font-bold text-white truncate">{user.name}</span>
-            <span className="inline-flex items-center gap-0.5 text-[11px] text-gray-400 font-semibold">
+            <span className="inline-flex items-center gap-0.5 text-[14px] text-gray-400 font-semibold">
               <Award className={`w-2.5 h-2.5 ${accentText} shrink-0`} />
               <span className="capitalize">{user.role}</span>
             </span>
@@ -244,7 +244,7 @@ export default function Sidebar({ user, activeTab, setActiveTab, onLogout, unrea
 
         {/* License key display */}
         {isBookkeeper && user.profile && (
-          <div className="px-2 py-1 bg-white/5 border border-white/10 rounded font-tabular text-[10px] text-gray-400 truncate">
+          <div className="px-2 py-1 bg-white/5 border border-white/10 rounded font-tabular text-[13px] text-gray-400 truncate">
             No: {(user.profile as any).license_no || "CPA LICENSE"}
           </div>
         )}

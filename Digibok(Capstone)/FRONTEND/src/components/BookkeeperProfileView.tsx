@@ -258,7 +258,7 @@ export default function BookkeeperProfileView({ user, token, onProfileUpdated, o
                     value={profile.email}
                     disabled
                     title="Login email can't be changed here"
-                    className="w-full px-3 py-1.5 text-sm bg-black/30 border border-white/10 rounded text-gray-500 cursor-not-allowed"
+                    className="w-full px-3 py-1.5 text-sm bg-black/30 border border-white/10 rounded text-gray-400 cursor-not-allowed"
                   />
                 </div>
               </div>
@@ -359,14 +359,14 @@ export default function BookkeeperProfileView({ user, token, onProfileUpdated, o
                 <div className="flex items-center justify-between gap-3 p-2.5 bg-black/30 rounded-lg border border-white/10">
                   <div className="min-w-0">
                     <p className="text-sm font-semibold text-white">Email Deadline Reminders</p>
-                    <p className="text-xs text-gray-500">BIR filing &amp; permit deadline alerts.</p>
+                    <p className="text-xs text-gray-400">BIR filing &amp; permit deadline alerts.</p>
                   </div>
                   <ToggleSwitch checked={emailRemindersEnabled} onChange={setEmailRemindersEnabled} />
                 </div>
                 <div className="flex items-center justify-between gap-3 p-2.5 bg-black/30 rounded-lg border border-white/10" title="Not available yet — no SMS provider is configured.">
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold text-gray-500">SMS Payment Alerts</p>
-                    <p className="text-xs text-gray-500">Coming soon.</p>
+                    <p className="text-sm font-semibold text-gray-400">SMS Payment Alerts</p>
+                    <p className="text-xs text-gray-400">Coming soon.</p>
                   </div>
                   <ToggleSwitch checked={false} onChange={() => {}} disabled />
                 </div>
@@ -403,10 +403,10 @@ export default function BookkeeperProfileView({ user, token, onProfileUpdated, o
 
             <div className="flex items-center justify-between gap-3 p-2.5 bg-black/30 rounded-lg border border-white/10">
               <div className="flex items-center gap-2 min-w-0">
-                <ShieldCheck className={`w-4 h-4 shrink-0 ${totpEnabled ? "text-green-400" : "text-gray-500"}`} />
+                <ShieldCheck className={`w-4 h-4 shrink-0 ${totpEnabled ? "text-green-400" : "text-gray-400"}`} />
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-white">Two-Factor Authentication (2FA)</p>
-                  <p className="text-xs text-gray-500 truncate">
+                  <p className="text-xs text-gray-400 truncate">
                     {totpEnabled
                       ? "Enabled — your account is protected with an authenticator app."
                       : "Enable 2FA to secure your account with an authenticator app."}
@@ -429,7 +429,7 @@ export default function BookkeeperProfileView({ user, token, onProfileUpdated, o
                 className="w-full flex items-center justify-between text-sm font-bold text-white focus:outline-none"
               >
                 <span className="flex items-center gap-1.5"><Lock className="w-3.5 h-3.5 text-gray-300" /> Change Password</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-gray-500 transition-transform ${showPasswordForm ? "rotate-180" : ""}`} />
+                <ChevronDown className={`w-3.5 h-3.5 text-gray-400 transition-transform ${showPasswordForm ? "rotate-180" : ""}`} />
               </button>
 
               {showPasswordForm && (
@@ -447,7 +447,7 @@ export default function BookkeeperProfileView({ user, token, onProfileUpdated, o
                       <button
                         type="button"
                         onClick={() => setShowCurrentPassword((v) => !v)}
-                        className="absolute inset-y-0 right-0 flex items-center pr-2.5 text-gray-500 hover:text-gray-300 focus:outline-none"
+                        className="absolute inset-y-0 right-0 flex items-center pr-2.5 text-gray-400 hover:text-gray-300 focus:outline-none"
                         aria-label={showCurrentPassword ? "Hide password" : "Show password"}
                       >
                         {showCurrentPassword ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
@@ -468,7 +468,7 @@ export default function BookkeeperProfileView({ user, token, onProfileUpdated, o
                         <button
                           type="button"
                           onClick={() => setShowNewPassword((v) => !v)}
-                          className="absolute inset-y-0 right-0 flex items-center pr-2.5 text-gray-500 hover:text-gray-300 focus:outline-none"
+                          className="absolute inset-y-0 right-0 flex items-center pr-2.5 text-gray-400 hover:text-gray-300 focus:outline-none"
                           aria-label={showNewPassword ? "Hide password" : "Show password"}
                         >
                           {showNewPassword ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}

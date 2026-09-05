@@ -194,7 +194,7 @@ export default function ClientProfileView({ user, token, onProfileUpdated, onNav
                 <p className="text-xs text-gray-400 truncate">{bookkeeper?.license_no ? `License ${bookkeeper.license_no}` : "Bookkeeper"}</p>
               </div>
             </div>
-            <p className="text-sm text-gray-500 font-tabular truncate">{bookkeeper?.email}</p>
+            <p className="text-sm text-gray-400 font-tabular truncate">{bookkeeper?.email}</p>
             <button
               onClick={() => onNavigate("messages")}
               className="w-full flex items-center justify-center gap-1.5 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold rounded-lg transition-all focus:outline-none"
@@ -228,7 +228,7 @@ export default function ClientProfileView({ user, token, onProfileUpdated, onNav
                     value={profile.owner_email}
                     disabled
                     title="Contact your bookkeeper to change your login email"
-                    className="w-full px-3 py-1.5 text-sm bg-black/30 border border-white/10 rounded text-gray-500 cursor-not-allowed"
+                    className="w-full px-3 py-1.5 text-sm bg-black/30 border border-white/10 rounded text-gray-400 cursor-not-allowed"
                   />
                 </div>
                 <div>
