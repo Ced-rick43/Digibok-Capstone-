@@ -4,13 +4,11 @@
   "version": "0.0.0",
   "description": "Forwards npm scripts to the app in ./Digibok(Capstone) so commands work from the workspace root too.",
   "scripts": {
+    "postinstall": "npm --prefix \"Digibok(Capstone)\" install --include=dev",
     "dev": "npm --prefix \"Digibok(Capstone)\" run dev",
     "build": "npm --prefix \"Digibok(Capstone)\" run build",
     "start": "npm --prefix \"Digibok(Capstone)\" run start",
     "lint": "npm --prefix \"Digibok(Capstone)\" run lint",
     "install:app": "npm --prefix \"Digibok(Capstone)\" install"
-  },
-  "dependencies": {
-    "firebase": "^12.18.0"
   }
 }
