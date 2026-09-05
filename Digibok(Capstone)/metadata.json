@@ -1,0 +1,6 @@
+{
+  "name": "DigiBok",
+  "description": "A web-based bookkeeping management system for Sipocot, Camarines Sur, helping bookkeepers manage client records, track tax and permit compliance, and generate financial reports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

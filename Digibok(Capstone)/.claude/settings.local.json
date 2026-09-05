@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(netstat -ano)",
+      "Bash(npm run *)",
+      "Bash(curl -s -i http://localhost:3000/api/payments --max-time 5)",
+      "Bash(node -e \"let d='';process.stdin.on\\('data',c=>d+=c\\);process.stdin.on\\('end',\\(\\)=>{const j=JSON.parse\\(d\\);console.log\\(j.permits.find\\(p=>p.permit_id===1\\)\\)}\\)\")",
+      "Bash(curl -s -i http://localhost:3000/api/reports/2/download --max-time 5)"
+    ]
+  }
+}

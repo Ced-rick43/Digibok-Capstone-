@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Ledger-ink primary scale — deep purple, the app's primary brand color (sidebar,
+     primary buttons, dark chrome throughout). Kept deliberately desaturated at the dark
+     end for an elegant, corporate "eggplant/plum" rather than a bright/neon violet. */
+  --color-ink-950: #190A2F;
+  --color-ink-900: #29124A;
+  --color-ink-800: #371A61;
+  --color-ink-700: #48247B;
+  --color-ink-600: #5D2F9D;
+  --color-ink-500: #6E3CB4;
+  --color-ink-200: #CBBAE3;
+  --color-ink-100: #E6DDF3;
+  --color-ink-50: #F7F4FA;
+
+  /* Warm gold accent - used sparingly for key actions, and as the bookkeeper role's
+     sidebar accent (pairs with the navy + beige palette). */
+  --color-gold-700: #92681F;
+  --color-gold-600: #B8862F;
+  --color-gold-500: #D9A441;
+  --color-gold-200: #EFD5A2;
+  --color-gold-100: #F6E9D2;
+  --color-gold-50: #FBF4E7;
+
+  /* Sage accent — the client role's sidebar accent, standing in for gold wherever the
+     UI needs to signal "this is the client view" (currently just the active nav item). */
+  --color-sage-700: #3D5A4C;
+  --color-sage-600: #4E735F;
+  --color-sage-500: #7CA08F;
+  --color-sage-200: #CFE0D6;
+  --color-sage-100: #E4EEE8;
+  --color-sage-50: #F2F7F4;
+
+  /* Semantic status colors */
+  --color-success: #1E9E6A;
+  --color-success-bg: #E5F6EF;
+  --color-success-line: #BFE7D5;
+  --color-warning: #E8A13C;
+  --color-warning-bg: #FDF2E2;
+  --color-warning-line: #F4DAAB;
+  --color-danger: #D64545;
+  --color-danger-bg: #FBEAEA;
+  --color-danger-line: #F2C6C6;
+  /* Info — a clearly distinct blue from the ink-navy brand scale (that one's deliberately
+     desaturated), used for "communication" accents like the Message Bookkeeper card. */
+  --color-info: #2E7BD6;
+  --color-info-bg: #E8F1FC;
+  --color-info-line: #BFDBF5;
+
+  /* Neutrals — warm beige page background (evokes ledger paper), near-white cards for
+     contrast/hierarchy, warm-tinted borders and text to match rather than the previous
+     cool gray-green neutrals. */
+  --color-canvas: #F5F0E6;
+  --color-surface: #FFFDF9;
+  --color-line: #E6DFCF;
+  --color-ink-text: #221C13;
+  --color-muted: #6E6455;
+  --color-muted-light: #9C9280;
+
+  /* "Chrome" — the app's persistent navigation surfaces (sidebar, dashboard hero banner)
+     that a user looks at constantly while working, as opposed to ink-950/900 used
+     elsewhere for buttons/badges/modal-backdrops/pre-login brand sections, which stay a
+     fixed navy regardless of theme by design. Chrome gets its own token specifically so
+     it CAN differ between light/dark — see the dark-mode override below. */
+  --color-chrome: #190A2F;
+}
+
+/* Dark mode — overrides the SAME custom property names @theme declares above, scoped to
+   [data-theme="dark"] on <html> (set by src/lib/theme.ts). Every component already uses
+   semantic classes (bg-canvas, text-ink-text, etc.) rather than literal colors, so this
+   cascades through the whole app with no per-component changes needed for those tokens.
+   Deliberately NOT overridden here: ink-50/100/200, gold-50/100/200, sage-50/100/200 — these
+   pale tint tokens do double duty as light TEXT on the always-dark navy hero/sidebar panels
+   (e.g. AuthScreens' and MarketingSite's hero copy), so redefining them dark would make that
+   text unreadable. Small badge/icon-chip elements that use them as backgrounds simply keep
+   their light, pastel look in dark mode too — a deliberate, common dark-mode pattern rather
+   than an oversight. */
+:root[data-theme="dark"] {
+  --color-canvas: #14120F;
+  --color-surface: #2C2620;
+  --color-line: #4A4235;
+  --color-ink-text: #F1EDE4;
+  --color-muted: #B8AD95;
+  --color-muted-light: #7D7461;
+
+  --color-success-bg: #122E22;
+  --color-success-line: #295C43;
+  --color-warning-bg: #3D2E14;
+  --color-warning-line: #6B5024;
+  --color-danger-bg: #3A1818;
+  --color-danger-line: #6B2E2E;
+  --color-info-bg: #12283D;
+  --color-info-line: #2A4E70;
+
+  /* Deliberately a different HUE (warm brown, matching the dark-mode surface family)
+     rather than just a darker navy — two near-black shades of the same blue read as
+     "identical" on a real screen (this is what shipped first and wasn't actually
+     distinguishable). Slightly darker than --color-surface (#2C2620) so the sidebar/
+     hero still recede as a distinct "chrome" layer instead of blending into cards. */
+  --color-chrome: #211C17;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-canvas);
+  color: var(--color-ink-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+.font-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Chrome, Safari, Edge, Opera custom scrollbar style */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink-50);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-200);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink-500);
+}
+
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-count-up {
+  animation: count-up 300ms ease-out;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(214, 69, 69, 0.35); }
+  100% { box-shadow: 0 0 0 6px rgba(214, 69, 69, 0); }
+}
+.animate-pulse-ring {
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
