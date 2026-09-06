@@ -25,8 +25,13 @@ const BOOTSTRAP_LOCK_KEY = 481516;
 
 export async function ensureSchema(): Promise<void> {
   const client = await pool.connect();
+  // Tracked so the cleanup below only tries to unlock a lock that was actually taken. If
+  // the lock query itself failed there is nothing to release, and asking anyway would
+  // just produce a second, more confusing error.
+  let locked = false;
   try {
     await client.query("SELECT pg_advisory_lock($1)", [BOOTSTRAP_LOCK_KEY]);
+    locked = true;
 
     const { rows } = await client.query("SELECT to_regclass($1) AS relation", [SENTINEL_RELATION]);
     if (rows[0].relation !== null) return;
@@ -52,7 +57,18 @@ export async function ensureSchema(): Promise<void> {
     }
     console.log("[DigiBok Startup] Schema applied — 16 tables created.");
   } finally {
-    await client.query("SELECT pg_advisory_unlock($1)", [BOOTSTRAP_LOCK_KEY]);
+    // This cleanup also runs on the failure path, where the connection is frequently the
+    // thing that broke. An unlock that throws here would replace the real startup error
+    // with a misleading one from the cleanup itself and skip the release below, leaking
+    // the client — so log it and carry on. A lock held by a dead session is released by
+    // Postgres when that session ends, and the pool hands back a fresh connection next.
+    if (locked) {
+      try {
+        await client.query("SELECT pg_advisory_unlock($1)", [BOOTSTRAP_LOCK_KEY]);
+      } catch (err) {
+        console.error("[DigiBok Startup] Could not release the bootstrap advisory lock —", err);
+      }
+    }
     client.release();
   }
 }
