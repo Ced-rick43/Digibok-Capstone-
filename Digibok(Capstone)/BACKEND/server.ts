@@ -2729,7 +2729,15 @@ async function startServer() {
   // only answer with a query against tables that do not exist yet. No-ops once applied.
   await ensureSchema();
 
-  if (process.env.NODE_ENV !== "production") {
+  // Deriving the mode from the running artifact rather than from NODE_ENV alone: dev runs
+  // this file as BACKEND/server.ts under tsx, while the deployed build runs as the esbuilt
+  // dist/server.cjs. A host that leaves NODE_ENV unset would otherwise boot a Vite dev
+  // server in production — slow, memory-hungry, and dependent on frontend sources and dev
+  // tooling that a built image has no reason to carry.
+  const runningBuiltBundle = path.basename(process.argv[1] || "").endsWith(".cjs");
+  const isProduction = process.env.NODE_ENV === "production" || runningBuiltBundle;
+
+  if (!isProduction) {
     // Frontend source (index.html, vite.config.ts) now lives in FRONTEND/, a sibling of
     // this file's BACKEND/ — Vite's default config auto-discovery only searches cwd and
     // its ancestors, so root/configFile must be passed explicitly or it won't be found.

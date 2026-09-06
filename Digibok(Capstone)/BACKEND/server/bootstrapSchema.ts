@@ -23,8 +23,32 @@ const SENTINEL_RELATION = "public.users";
 // be the same constant in every instance.
 const BOOTSTRAP_LOCK_KEY = 481516;
 
+// Railway starts this service and its Postgres service concurrently, and a database that
+// is still booting refuses connections instantly. Exiting on the first refusal burns
+// through the platform's restart budget (restartPolicyMaxRetries: 10) in a couple of
+// seconds and the service is marked crashed for good — while Postgres becomes ready half
+// a minute later. Wait the database out instead of racing it.
+const CONNECT_MAX_ATTEMPTS = 10;
+const CONNECT_RETRY_MS = 3000;
+
+async function connectWithRetry() {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      return await pool.connect();
+    } catch (err) {
+      if (attempt >= CONNECT_MAX_ATTEMPTS) throw err;
+      const reason = err instanceof Error ? err.message : String(err);
+      console.warn(
+        `[DigiBok Startup] Database unreachable (attempt ${attempt}/${CONNECT_MAX_ATTEMPTS}: ${reason}) — ` +
+        `retrying in ${CONNECT_RETRY_MS}ms.`
+      );
+      await new Promise((resolve) => setTimeout(resolve, CONNECT_RETRY_MS));
+    }
+  }
+}
+
 export async function ensureSchema(): Promise<void> {
-  const client = await pool.connect();
+  const client = await connectWithRetry();
   // Tracked so the cleanup below only tries to unlock a lock that was actually taken. If
   // the lock query itself failed there is nothing to release, and asking anyway would
   // just produce a second, more confusing error.
